@@ -1,0 +1,42 @@
+﻿curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get install apt-transport-https ca-certificates curl gnupg lsb-release -y
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io -y
+sudo usermod -aG docker toto
+sudo systemctl restart docker
+
+#pour voir la version
+docker version
+
+docker pull hello-world
+
+Explication globale :
+	navigateur :
+		- mettre en place des formulaires
+		- afficher
+	serveur web:
+		- génère des pages à partir du serveur REST
+	serveur REST :
+		- envoie les JSON
+		- reçoit des GET /API/..
+
+
+Installation de FLASK
+
+sudo apt install python3-virtualenv
+virtualenv env -p python3
+. env/bin/activate
+pip install flask
+
+
+La première API est celle que nous programmons en Python.
+Elle recevra les requêtes du client (c’est-à-dire le navigateur). 
+Mais ce client attendra du programme Python qu’il leur renvoie les données de la vidéothèque. 
+Pour les obtenir, le programme Python se tournera alors vers l’API REST ??.
+
+
+Comme c’est Python qui envoie la requête, il devient alors lui-même client d’Openweathermaps !*
+Une fois que l’API Openweathermaps aura répondu, alors Python renverra les données reçues à son client : le navigateur.
+
+https://openclassrooms.com/fr/courses/4525361-realisez-un-dashboard-avec-tableau/5774811-creez-une-api-avec-flask
