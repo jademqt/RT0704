@@ -49,7 +49,7 @@ class Videolib:
 
     # Sauvegarde une vidéothèque sous la forme d'un fichier JSON
     def save(self, filename):
-        json_obj = self.toJson()
+        json_obj = self.as_json()
 
         with open(filename, "w") as writefile:
             json.dump(json_obj, writefile)

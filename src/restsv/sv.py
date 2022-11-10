@@ -1,12 +1,40 @@
 import os
+import sys
 from flask import Flask
 
 sys.path.append("/home/toto/RT0704/src")
+sys.path.append("/home/toto/RT0704/src/video")
 
-from video.person import Person
-from video.movie import Movie
-from video.videolib import Videolib
+from person import Person
+from movie import Movie
+from videolib import Videolib
 from config import Config
+
+
+# GET HTTP method > return resource as json
+def func_get(uri_tab):
+    if uri_tab.len() == 1:
+        return vidlib_arr[uri_tab[0]].as_json()
+
+
+# PUT HTTP method >
+def func_put(uri_tab):
+    #TODO
+    pass
+
+
+# POST HTTP method >
+def func_post(uri_tab):
+    #TODO
+    pass
+
+
+# DELETE HTTP method >
+def func_del(uri_tab):
+    #TODO
+    pass
+
+
 
 # load config
 config = Config("/home/toto/RT0704/src/sv.conf")
@@ -16,18 +44,25 @@ methodParse = {
     "GET": func_get,
     "PUT": func_put,
     "POST": func_post,
-    "DELETE": func_delete
+    "DELETE": func_del
     }
 
 # load video libs
 vidlib_path_arr = []
 vidlib_arr = []
-for path in os.listdir(config.get_json_folder()):
-    if os.isfile(path):
-        vidlib_path_arr.append(path)
+for fpath in os.listdir(config.get_json_folder()):
+    print("hmm " + fpath)
+    if os.path.isfile(fpath):
+        print("euh " + fpath)
+        vidlib_path_arr.append(fpath)
 
 for path in vidlib_path_arr:
     vidlib_arr.append(Videolib().load(path))
+
+print("[DEBUG] searching for libraries in " + config.get_json_folder())
+print("video libraries found :")
+for lib in vidlib_path_arr:
+    print(lib)
 
 app = Flask(__name__)
 
@@ -44,7 +79,3 @@ def main_func():
     return ans
 
 
-# GET HTTP method > return resource as json
-def func_get(uri_tab):
-    if uri_tab.len() == 1:
-        return vidlib_arr[uri_tab[0]].as_json()

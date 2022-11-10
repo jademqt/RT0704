@@ -1,14 +1,11 @@
 class Config:
     config = {
-            "JSON_folder": "",
+            "json_folder": "",
             "web_folder": ""
             }
 
-    def __init__(self, conf):
-        self.read_conf_file()
-    
-    def read_conf_file(self):
-        with open(self.config_file, "r") as conf:
+    def __init__(self, path):
+        with open(path, "r") as conf:
             for line in conf:
                 # remove comments
                 if line.startswith('#'):
@@ -18,10 +15,10 @@ class Config:
 
     def add_conf_line(self, line):
         parsed = line.split(':')
-        self.config[parsed[0]] = parsed[1]
+        self.config[parsed[0]] = parsed[1].strip('\n')
 
-    def get_json(self):
-        return self.json_folder
+    def get_json_folder(self):
+        return self.config["json_folder"]
 
-    def get_www(self):
-        return self.web_folder
+    def get_www_folder(self):
+        return self.config["web_folder"]

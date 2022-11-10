@@ -43,4 +43,5 @@ class Movie:
 
 
     def as_json(self):
+        pass
         #TODO

@@ -23,4 +23,5 @@ class Person:
 
 
     def as_json(self):
+        pass
         #TODO
