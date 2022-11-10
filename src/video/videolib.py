@@ -18,7 +18,7 @@ class Videolib:
 
     
     # Renvoie une chaine de caractère correspondant à la sérialisation JSON de l'objet
-    def toJson(self):
+    def as_json(self):
         moviesdictlist = []
     
         for mov in self.movies:
@@ -35,7 +35,7 @@ class Videolib:
 
 
     # Désérialise une chaine de caractere JSON
-    def fromJson(self, jsonobj):
+    def from_json(self, jsonobj):
         dic = json.loads(jsonobj)
 
         self.addOwner(Person("e", "e"))
@@ -60,5 +60,5 @@ class Videolib:
         with open(filename, "r") as readfile:
             json_obj = json.load(readfile)
 
-        self.fromJson(json_obj)
+        self.from_json(json_obj)
 

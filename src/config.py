@@ -1,7 +1,7 @@
 class Config:
     config = {
-        "JSON_folder" = "",
-        "web_folder" = ""
+            "JSON_folder": "",
+            "web_folder": ""
             }
 
     def __init__(self, conf):

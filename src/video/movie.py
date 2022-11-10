@@ -42,4 +42,5 @@ class Movie:
             self.addActor(ac["first_name"], ac["last_name"])
 
 
-
+    def as_json(self):
+        #TODO

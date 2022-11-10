@@ -22,3 +22,5 @@ class Person:
         self.lastname = dic["last_name"]
 
 
+    def as_json(self):
+        #TODO
