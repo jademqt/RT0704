@@ -1,27 +1,65 @@
-# Classe représentant une personne
+import json
+
 class Person:
-    # Constructeur
-    def __init__(self, fname, lname):
+    def __init__(self, fname, lname, uri):
         self.firstname = fname
         self.lastname = lname
+        self.uri = uri
 
 
-    # Renvoie un dictionnaire représentant la classe
-    def toDict(self):
-        dic = {
-            "first_name": self.firstname,
-            "last_name": self.lastname
-            }
-        return dic
-
-
-    # Initialise l'objet avec les valeurs contenues dans un dictionnaire
-    # L'objet doit etre créé (pas un constructeur)
-    def fromDict(self, dic):
-        self.firstname = dic["first_name"]
-        self.lastname = dic["last_name"]
+    def setURI(self, uri):
+        self.uri = uri
 
 
     def as_json(self):
-        pass
-        #TODO
+        d = {
+            "firstname": self.firstname,
+            "lastname": self.lastname
+        }
+
+        return json.dumps(d)
+
+
+    def from_json(self, json_object):
+        d = json.loads(json_object)
+
+        self.firstname = d["firstname"]
+        self.lastname = d["lastname"]
+
+
+    def save(self):
+        d = {
+            "firstname": self.firstname,
+            "lastname": self.lastname
+        }
+
+        with open(self.uri, "w") as f:
+            json.dump(f, d)
+
+
+    def load_file(self):
+        with open(self.uri, "r") as f:
+            d = json.load(f)
+
+        self.firstname = d["firstname"]
+        self.lastname = d["lastname"]
+
+
+    @classmethod
+    def empty(cls):
+        return Person("","", "")
+
+
+    @classmethod
+    def new_from_file(cls, uri):
+        with open(uri, "r") as f:
+            d = json.load(f)
+
+        return Person(d["firstname"], d["lastname"], uri)
+
+
+    @classmethod
+    def new_from_json(cls, json_object):
+        d = json.loads(json_object)
+    
+        return Person(d["firstname"], d["lastname"], "")

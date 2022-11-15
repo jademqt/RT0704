@@ -1,47 +1,82 @@
-from person import Person
+import json
+from person import *
 
-# Classe représentant un film
 class Movie:
-    # Constructeur
-    def __init__(self, title, direc, year):
-        self.title = title
-        self.direc = direc
+    def __init__(self, auth, titl, year, act, uri):
+        self.author = auth #uri
+        self.title = titl
         self.year = year
-        self.actors = []
-
-    
-    def addActor(self, fname, lname):
-        # TODO check params validity
-        self.actors.append(Person(fname, lname))
+        self.actors = act #uris
+        self.uri = uri #own uri
 
 
-    # Renvoie un dictionnaire représentant la classe
-    def toDict(self):
-        actordictlist = []
-        for actor in self.actors:
-            actordictlist.append(actor.toDict())
-
-        movdict = {
-            "title": self.title,
-            "director": self.direc,
-            "year": self.year,
-            "actors": actordictlist
-        }
-
-        return movdict
+    def add_actor(self, act_uri):
+        self.actors.append(act_uri)
 
 
-    # Initialise l'objet avec les valeurs contenues dans un dictionnaire
-    # Attention l'objet doit etre créé avant
-    def fromDict(self, dic):
-        self.title = dic["title"]
-        self.direc = dic["director"]
-        self.year = dic["year"]
-        
-        for ac in dic["actors"]:
-            self.addActor(ac["first_name"], ac["last_name"])
+    def setURI(self, uri):
+        self.uri = uri
 
 
     def as_json(self):
-        pass
-        #TODO
+        d = {
+            "author": self.author,
+            "title": self.title,
+            "year": self.year,
+            "actors": self.actors
+        }
+
+        return json.dumps(d)
+
+
+    def from_json(self, json_object):
+        d = json.loads(json_object)
+
+        self.author = d["author"]
+        self.title = d["title"]
+        self.year = d["year"]
+        self.actors = d["actors"]
+
+    
+    def load_file(self):
+        with open(self.uri, "r") as f:
+            d = json.load(f)
+
+        self.author = d["author"]
+        self.title = d["title"]
+        self.year = d["year"]
+        self.actors = d["actors"]
+
+
+    def save(self):
+        d = {
+            "author": self.author,
+            "title": self.title,
+            "year": self.year,
+            "actors": self.actors
+        }
+
+        with open(self.uri, "w") as f:
+            json.dump(d, f)
+
+
+    @classmethod
+    def empty(cls):
+        return Movie("", "", 0, "")
+
+
+    @classmethod
+    def new_from_file(cls, uri):
+        with open(uri, "r") as f:
+            d = json.load(f)
+
+        return Movie(d["author"], d["title"],
+                d["year"], d["actors"], uri)
+
+    
+    @classmethod
+    def new_from_json(cls, json_object):
+        d = json.loads(json_object)
+
+        return Movie(d["author"], d["title"],
+                d["year"], d["actors"], "")
