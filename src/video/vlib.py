@@ -3,6 +3,15 @@ from person import *
 from movie import *
 
 class Vlib:
+    """
+        Class modeling a video library
+
+        fields:
+            owner   (str): URI to a Person JSON file
+            uri     (str): own URI
+            movies (list): list of URIs to Movie JSON files
+    """
+
     def __init__(self, owne, uri):
         self.owner = owne #uri
         self.uri = uri #own uri

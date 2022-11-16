@@ -1,0 +1,4 @@
+#1 test everything
+#2 add arguments verifications
+#3 add JSON format/fileds verification
+#4 suggestion: add person tags e.g actor, owner, director...
