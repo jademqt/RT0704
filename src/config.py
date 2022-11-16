@@ -1,10 +1,7 @@
 class Config:
-    config = {
-            "json_folder": "",
-            "web_folder": ""
-            }
-
     def __init__(self, path):
+        self.fields = {}
+
         with open(path, "r") as conf:
             for line in conf:
                 # remove comments
@@ -15,10 +12,5 @@ class Config:
 
     def add_conf_line(self, line):
         parsed = line.split(':')
-        self.config[parsed[0]] = parsed[1].strip('\n')
+        self.fields[parsed[0]] = parsed[1].strip('\n')
 
-    def get_json_folder(self):
-        return self.config["json_folder"]
-
-    def get_www_folder(self):
-        return self.config["web_folder"]
