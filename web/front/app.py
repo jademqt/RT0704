@@ -7,7 +7,7 @@ app = Flask(__name__)
 def web():
     return  render_template("index.html")
 
-@app.route('/static/template/')
+@app.route('/templates/')
 def import_actors():
     first_name = request.form['import_firstname']
     last_name = request.form['import_lastname']
