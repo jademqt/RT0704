@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>VideoJJ - import a videolib</title>
+    <title>Bare - Start Bootstrap Template</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Core theme CSS (includes Bootstrap)-->
@@ -15,11 +15,11 @@
     <!-- Responsive navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="../index.html">VideoJJ</a>
+            <a class="navbar-brand" href="../../templates/index.html">VideoJJ</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="../../templates/index.html">Home</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Import new data</a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -50,35 +50,36 @@
     </nav>
     <!-- Page content-->
     <div class="text-center mt-5">
-        <h1>Import a new videolib in our data base </h1>
+        <h1>Import a new movie in our data base </h1>
         <form>
             <div class="form-group">
                 <label class="label_class" for="formGroupExampleInput">Title :</label>
                 <input type="text" class="form-control" id="import_title" placeholder="Ex: La nuit du 12">
             </div>
             <div class="form-group">
-                <label class="label_class" for="formGroupExampleInput2">Owner :</label>
-                <select id="import_owner">
-                    <option value="Owner1">Owner1</option>
-                    <option value="Owner2">Owner2</option>
+                <label class="label_class" for="formGroupExampleInput2">Director :</label>
+                <select id="import_list_actors" >
+                    <option value="Director1">Director1</option>
+                    <option value="Director2">Director2</option>
                 </select>
             </div>
             <div class="form-group">
-                <span>If you don't find your name in the list, please click <a href="import_owner.html">here</a></span>
+                <label class="label_class" for="formGroupExampleInput2">Year :</label>
+                <input type="number" placeholder="2022" min="1900" max="2030" id="import_year">
             </div>
             <div class="form-group">
-                <label class="label_class" for="formGroupExampleInput2">Movies :</label>
-                <select id="import_list_movies" multiple>
-                    <option value="Movie1">Movie1</option>
-                    <option value="Movie2">Movie2</option>
+                <label class="label_class" for="formGroupExampleInput2">Actors :</label>
+                <select id="import_list_actors" multiple>
+                    <option value="Actor1">Actor1</option>
+                    <option value="Actor2">Actor2</option>
                 </select>
             </div>
             <div class="form-group">
                 <span>Hold down the Ctrl (windows) or Command (Mac) button to select multiple options.</span>
-                <span>If you don't find your movie in the list, please click <a href="import_movies.html">here</a></span>
+                <span>If you don't find your actor in the list, please click <a href="../template/import_actors.html">here</a></span>
             </div>
             <button type="submit" class="btn btn-primary">Create</button>
-        </form>
+</form>
     </div>
 
 
