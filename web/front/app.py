@@ -1,10 +1,18 @@
 #-*- coding: utf-8 -*- 
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for, request, session
+from datetime import timedelta
 app = Flask(__name__)
 
 @app.route('/')
 def web():
     return  render_template("index.html")
+
+@app.route('/static/template/')
+def import_actors():
+    first_name = request.form['import_firstname']
+    last_name = request.form['import_lastname']
+    print("First name : ", first_name, " et last name ", last_name)
+    return 'Submitted!'
 
 def test():
     #convertir un dictionnaire en un JSON puis le renvoie sous forme de reponse HTTP
