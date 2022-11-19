@@ -7,12 +7,21 @@ app = Flask(__name__)
 def web():
     return  render_template("index.html")
 
+@app.route('/import_actors')
+def import_actors():
+    return render_template("import_actors.html")
+
+@app.route('/import_movies')
+def import_movies():
+    return render_template('import_movies.html')
+'''
 @app.route('/templates/')
 def import_actors():
     first_name = request.form['import_firstname']
     last_name = request.form['import_lastname']
     print("First name : ", first_name, " et last name ", last_name)
     return 'Submitted!'
+'''
 
 def test():
     #convertir un dictionnaire en un JSON puis le renvoie sous forme de reponse HTTP
