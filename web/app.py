@@ -16,35 +16,35 @@ def import_movies():
     return render_template('import_movies.html')
 
 @app.route('/import_videolib')
-def import_movies():
+def import_videolib():
     return render_template('import_videolib.html')
 
 @app.route('/import_owner')
-def import_movies():
+def import_owner():
     return render_template('import_owner.html')
 
 @app.route('/delete_actors')
-def import_actors():
+def delete_actors():
     return render_template("delete_actors.html")
 
 @app.route('/delete_movies')
-def import_movies():
+def delete_movies():
     return render_template('delete_movies.html')
 
 @app.route('/delete_videolib')
-def import_movies():
+def delete_videolib():
     return render_template('delete_videolib.html')
 
 @app.route('/explore_actors')
-def import_actors():
+def explore_actors():
     return render_template("explore_actors.html")
 
 @app.route('/explore_movies')
-def import_movies():
+def explore_movies():
     return render_template('explore_movies.html')
 
 @app.route('/explore_videolib')
-def import_movies():
+def explore_videolib():
     return render_template('explore_videolib.html')
 
 
