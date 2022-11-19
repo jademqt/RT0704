@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>VideoJJ - import a videolib</title>
+    <title>Bare - Start Bootstrap Template</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Core theme CSS (includes Bootstrap)-->
@@ -23,25 +23,25 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Import new data</a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="import_actors.html">Actors</a></li>
-                            <li><a class="dropdown-item" href="import_movies.html">Movies</a></li>
-                            <li><a class="dropdown-item" href="import_videolib.html">Library</a></li>
+                            <li><a class="dropdown-item" href="/import_actors">Actors</a></li>
+                            <li><a class="dropdown-item" href="/import_movies">Movies</a></li>
+                            <li><a class="dropdown-item" href="/import_videolib">Library</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Explore our data</a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="explore_actors.html">Actors</a></li>
-                            <li><a class="dropdown-item" href="explore_movies.html">Movies</a></li>
-                            <li><a class="dropdown-item" href="explore_videolib.html">Library</a></li>
+                            <li><a class="dropdown-item" href="/explore_actors">Actors</a></li>
+                            <li><a class="dropdown-item" href="/explore_movies">Movies</a></li>
+                            <li><a class="dropdown-item" href="/explore_videolib">Library</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Delete some data</a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="delete_actors.html">Actors</a></li>
-                            <li><a class="dropdown-item" href="delete_movie.html">Movies</a></li>
-                            <li><a class="dropdown-item" href="delete_videolib.html">Library</a></li>
+                            <li><a class="dropdown-item" href="/delete_actors">Actors</a></li>
+                            <li><a class="dropdown-item" href="/delete_movie">Movies</a></li>
+                            <li><a class="dropdown-item" href="/delete_videolib">Library</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -50,9 +50,18 @@
     </nav>
     <!-- Page content-->
     <div class="text-center mt-5">
-        <h1>Movies</h1>
-        <h2>Data base</h2>
-        <!-- Afficher les acteurs ici -->
+        <h1>Do you want to delete a movie? </h1>
+        <span>Don't be ashamed if you liked it...   </span>
+        <form>
+            <div class="form-group">
+                <label class="label_class" for="formGroupExampleInput2">Movie we don't asume to have watched... and liked</label>
+                <select id="delete_movie">
+                    <option value="Movie1">Movie1</option>
+                    <option value="Movie2">Movie2</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">I'll never forget it...</button>
+        </form>
     </div>
 
 

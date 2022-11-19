@@ -23,25 +23,25 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Import new data</a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="import_actors.html">Actors</a></li>
-                            <li><a class="dropdown-item" href="import_movies.html">Movies</a></li>
-                            <li><a class="dropdown-item" href="import_videolib.html">Library</a></li>
+                            <li><a class="dropdown-item" href="/import_actors">Actors</a></li>
+                            <li><a class="dropdown-item" href="/import_movies">Movies</a></li>
+                            <li><a class="dropdown-item" href="/import_videolib">Library</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Explore our data</a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="explore_actors.html">Actors</a></li>
-                            <li><a class="dropdown-item" href="explore_movies.html">Movies</a></li>
-                            <li><a class="dropdown-item" href="explore_videolib.html">Library</a></li>
+                            <li><a class="dropdown-item" href="/explore_actors">Actors</a></li>
+                            <li><a class="dropdown-item" href="/explore_movies">Movies</a></li>
+                            <li><a class="dropdown-item" href="/explore_videolib">Library</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Delete some data</a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="delete_actors.html">Actors</a></li>
-                            <li><a class="dropdown-item" href="delete_movie.html">Movies</a></li>
-                            <li><a class="dropdown-item" href="delete_videolib.html">Library</a></li>
+                            <li><a class="dropdown-item" href="/delete_actors">Actors</a></li>
+                            <li><a class="dropdown-item" href="/delete_movie">Movies</a></li>
+                            <li><a class="dropdown-item" href="/delete_videolib">Library</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -50,21 +50,18 @@
     </nav>
     <!-- Page content-->
     <div class="text-center mt-5">
-        <h1>Welcome new contributor ! </h1>
-        <form>
+        <h1>Import a new actor in our data base </h1>
+        <form action="import_actors">
             <div class="form-group">
-                <label class="label_class" for="formGroupExampleInput">Enter your first name :</label>
-                <input type="text" class="form-control" id="import_firstname" placeholder="Ex: Jules">
+                <label class="label_class" for="formGroupExampleInput">First name :</label>
+                <input name="import_firstname" type="text" class="form-control" id="import_firstname" placeholder="Ex: Thomas">
             </div>
             <div class="form-group">
-                <label class="label_class" for="formGroupExampleInput2">Enter your last name :</label>
-                <input type="text" class="form-control" id="import_lastname" placeholder="Ex: Klein">
+                <label class="label_class" for="formGroupExampleInput2">Last name :</label>
+                <input name="import_lastname" type="text" class="form-control" id="import_lastname" placeholder="Ex: Anderson">
             </div>
-            <button type="submit" class="btn btn-primary">Let's go !</button>
+            <button type="submit" class="btn btn-primary">Create</button>
         </form>
-        <div class="form-group">
-            <span>Thanks for your (future) contribution mate !</span>
-        </div>
     </div>
 
 

@@ -14,6 +14,39 @@ def import_actors():
 @app.route('/import_movies')
 def import_movies():
     return render_template('import_movies.html')
+
+@app.route('/import_videolib')
+def import_movies():
+    return render_template('import_videolib.html')
+
+@app.route('/import_owner')
+def import_movies():
+    return render_template('import_owner.html')
+
+@app.route('/delete_actors')
+def import_actors():
+    return render_template("delete_actors.html")
+
+@app.route('/delete_movies')
+def import_movies():
+    return render_template('delete_movies.html')
+
+@app.route('/delete_videolib')
+def import_movies():
+    return render_template('delete_videolib.html')
+
+@app.route('/explore_actors')
+def import_actors():
+    return render_template("explore_actors.html")
+
+@app.route('/explore_movies')
+def import_movies():
+    return render_template('explore_movies.html')
+
+@app.route('/explore_videolib')
+def import_movies():
+    return render_template('explore_videolib.html')
+
 '''
 @app.route('/templates/')
 def import_actors():
