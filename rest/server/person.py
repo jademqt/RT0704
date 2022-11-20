@@ -15,8 +15,8 @@ class Person:
             Default constructor
         """
 
-        self.firstname = fname
-        self.lastname = lname
+        self.first_name = fname
+        self.last_name = lname
         
         self.uri = uri
 
