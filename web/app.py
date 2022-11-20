@@ -1,5 +1,6 @@
 #-*- coding: utf-8 -*- 
-from flask import Flask, render_template, redirect, url_for, request, session
+import requests
+from flask import Flask, jsonify, render_template, redirect, url_for, request, session
 from datetime import timedelta
 app = Flask(__name__)
 
@@ -52,7 +53,10 @@ def explore_videolib():
 def actor_created():
     first_name = request.form.get('import_firstname')
     last_name = request.form.get('import_lastname')
-    return render_template("actor_created.html", first_name=first_name, last_name=last_name)
+    new_actor = jsonify(first_name=first_name, last_name=last_name)
+    # res = requests.post('http://localhost/api/persons/' + first_name, data=new_actor)
+    #print(res.text)
+    return render_template("actor_created.html", first_name=first_name, last_name=last_name, new_actor=new_actor)
 
 @app.route('/owner_created', methods=['POST', 'GET'])
 def owner_created():
