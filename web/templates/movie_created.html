@@ -40,7 +40,7 @@
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Delete some data</a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="/delete_actors">Actors</a></li>
-                            <li><a class="dropdown-item" href="/delete_movies">Movies</a></li>
+                            <li><a class="dropdown-item" href="/delete_movie">Movies</a></li>
                             <li><a class="dropdown-item" href="/delete_videolib">Library</a></li>
                         </ul>
                     </li>
@@ -50,21 +50,9 @@
     </nav>
     <!-- Page content-->
     <div class="text-center mt-5">
-        <h1>Welcome new contributor ! </h1>
-        <form action="/owner_created" method="POST">
-            <div class="form-group">
-                <label class="label_class" for="formGroupExampleInput">Enter your first name :</label>
-                <input name="owner_first_name" type="text" class="form-control" id="owner_import_firstname" placeholder="Ex: Jules">
-            </div>
-            <div class="form-group">
-                <label class="label_class" for="formGroupExampleInput2">Enter your last name :</label>
-                <input name="owner_last_name" type="text" class="form-control" id="owner_import_lastname" placeholder="Ex: Klein">
-            </div>
-            <button type="submit" class="btn btn-primary">Let's go !</button>
-        </form>
-        <div class="form-group">
-            <span>Thanks for your (future) contribution mate !</span>
-        </div>
+        <h1>Thanks for your contribution!</h1>
+        <h2>Thanks to you, we now have <span style="color: #e97402 ;">{{title}}</span> from {{movie_year}} as a new movie in our data</h2>
+        <span>test : director = {{director}} <br> movie_actors = {{movie_actors}}</span>
     </div>
 
 

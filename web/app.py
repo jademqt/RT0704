@@ -48,14 +48,32 @@ def explore_videolib():
     return render_template('explore_videolib.html')
 
 
-@app.route('/actor_created')
-def import_actors():
-    first_name = request.form['import_firstname']
-    last_name = request.form['import_lastname']
-    return render_template('actor_created.html')
-    return first_name + " " + last_name
+@app.route('/actor_created', methods=['POST', 'GET'])
+def actor_created():
+    first_name = request.form.get('import_firstname')
+    last_name = request.form.get('import_lastname')
+    return render_template("actor_created.html", first_name=first_name, last_name=last_name)
 
+@app.route('/owner_created', methods=['POST', 'GET'])
+def owner_created():
+    owner_first_name = request.form.get('owner_first_name')
+    owner_last_name = request.form.get('owner_last_name')
+    return render_template("owner_created.html",  owner_first_name=owner_first_name, owner_last_name=owner_last_name)
 
+@app.route('/movie_created', methods=['POST', 'GET'])
+def movie_created():
+    title = request.form.get('title')
+    director = request.form.get('director')
+    movie_year = request.form.get('movie_year')
+    movie_actors = request.form.getlist('movie_actors')
+    return render_template("movie_created.html", title=title, director=director, movie_year=movie_year, movie_actors=movie_actors)
+
+@app.route('/videolib_created', methods=['POST', 'GET'])
+def videolib_created():
+    videolib_title = request.form.get('videolib_title')
+    owner = request.form.get('owner')
+    videolib_movies = request.form.getlist('videolib_movies')
+    return render_template("videolib_created.html", videolib_title=videolib_title, owner=owner, videolib_movies=videolib_movies)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)

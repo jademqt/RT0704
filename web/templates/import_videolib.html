@@ -51,14 +51,14 @@
     <!-- Page content-->
     <div class="text-center mt-5">
         <h1>Import a new videolib in our data base </h1>
-        <form>
+        <form action="/videolib_created" method="POST">
             <div class="form-group">
                 <label class="label_class" for="formGroupExampleInput">Title :</label>
-                <input type="text" class="form-control" id="import_title" placeholder="Ex: La nuit du 12">
+                <input name="videolib_title" type="text" class="form-control" id="import_title" placeholder="Ex: La nuit du 12">
             </div>
             <div class="form-group">
                 <label class="label_class" for="formGroupExampleInput2">Owner :</label>
-                <select id="import_owner">
+                <select name="owner" id="import_owner">
                     <option value="Owner1">Owner1</option>
                     <option value="Owner2">Owner2</option>
                 </select>
@@ -68,7 +68,7 @@
             </div>
             <div class="form-group">
                 <label class="label_class" for="formGroupExampleInput2">Movies :</label>
-                <select id="import_list_movies" multiple>
+                <select name="videolib_movies" id="import_list_movies" multiple>
                     <option value="Movie1">Movie1</option>
                     <option value="Movie2">Movie2</option>
                 </select>
