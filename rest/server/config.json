@@ -1,7 +1,0 @@
-{
-	"port" : 8001,
-	"address" : "127.0.0.1",
-	"server_root" : "/home/toto/RT0704/rest",
-	"path_api" : "/home/toto/RT0704/rest/api",
-	"path_vlib" : "/home/toto/RT0704/rest/api/vlib"
-}

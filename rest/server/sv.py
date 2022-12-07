@@ -7,7 +7,7 @@ from formats import *
 
 
 def path_from_uri(uri, dotflag):
-    path = config["server_root"] + "/" + uri
+    path = config["app_root"] + "/rest/" + uri
     if (dotflag):
         path += ".json"
 
@@ -32,9 +32,9 @@ def func_get(uri):
 
     if not os.path.exists(path):
         return "NOK"
-   
+  
     with open(path, "r") as f:
-        obj = json.load(uri)
+        obj = json.load(f)
 
     return obj
 
@@ -45,13 +45,9 @@ def func_post(uri):
     objtype = uri.split('/')[1]
     full_path = path_from_uri(uri, True)
 
-    print("1")
-
     # No data
     if len(request.data) == 0:
         return "NOK"
-
-    print("2")
 
     # File exists
     if (os.path.exists(full_path)):
@@ -73,8 +69,6 @@ def func_post(uri):
         if not json_is_vlib(json_obj):
             return "NOK"
 
-    print("[debug] received valid json object : ", json_obj)
-
     # Write to file
     with open(full_path, "w") as f:
         json.dump(json_obj, f)
@@ -91,10 +85,8 @@ def func_del(uri):
     return "NOK"
 
 
-
-
 # load config
-with open("/home/toto/RT0704/rest/server/config.json", "r") as f:
+with open("/home/toto/RT0704/config.json", "r") as f:
     config = json.load(f)
 
 # differentiate action based on HTTP method
@@ -105,16 +97,6 @@ methodParse = {
     "DELETE": func_del
 }
 
-
-# load video libs
-vidlib_path_arr = []
-vidlib_arr = []
-for fpath in os.listdir(config["path_vlib"]):
-    if os.path.isfile(fpath):
-        vidlib_path_arr.append(fpath)
-
-for path in vidlib_path_arr:
-    vidlib_arr.append(Videolib().new_from_file(path))
 
 app = Flask(__name__)
 
@@ -128,4 +110,4 @@ def main_func(uri):
     return ans
 
 if __name__ == "__main__":
-    app.run(debug=True, host=config["address"], port=config["port"])
+    app.run(debug=True, host=config["rest_address"], port=config["rest_port"])

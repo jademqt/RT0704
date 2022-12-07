@@ -4,22 +4,23 @@ import requests
 import json
 from flask import Flask, jsonify, render_template, redirect, url_for, request, session
 from datetime import timedelta
+from apicalls import *
+
 app = Flask(__name__)
 
 persons_uri_list = []
 movies_uri_list = []
 vlib_uri_list = []
 
-def get_uri_list():
-    movies = requests.get("http://localhost:8001/api/movies")
-    persons = requests.get("http://localhost:8001/api/persons")
-    vlib = requests.get("http://localhost:8001/api/vlib")
-    
-    return (bytes.decode(persons.content).split('\n'), bytes.decode(movies.content).split('\n'), bytes.decode(vlib.content).split('\n'))
+# load config
+with open("/home/toto/RT0704/config.json", "r") as f:
+    config = json.load(f)
 
-(persons_uri_list, movies_uri_list, vlib_uri_list) = get_uri_list()
+rest_full_address = "http://" + config["rest_address"] + ":" + str(config["rest_port"]) + "/"
 
-print(persons_uri_list)
+persons_uri_list = get_persons_list()
+movies_uri_list = get_movies_list()
+lib_uri_list = get_vlib_list()
 
 @app.route('/')
 def web():
@@ -71,16 +72,17 @@ def actor_created():
     first_name = request.form.get('import_firstname')
     last_name = request.form.get('import_lastname')
 
-    new_actor = { "first_name": first_name, "last_name": last_name }
+    res = new_person(first_name, last_name) 
     
-    res = requests.post('http://localhost:8001/api/persons/' + first_name, json=new_actor)
-    #print(res.text)
-    return render_template("actor_created.html", first_name=first_name, last_name=last_name, new_actor=new_actor)
+    return render_template("actor_created.html", first_name=first_name, last_name=last_name)
 
 @app.route('/owner_created', methods=['POST', 'GET'])
 def owner_created():
     owner_first_name = request.form.get('owner_first_name')
     owner_last_name = request.form.get('owner_last_name')
+    
+    res = new_person(owner_first_name, owner_last_name)
+
     return render_template("owner_created.html",  owner_first_name=owner_first_name, owner_last_name=owner_last_name)
 
 @app.route('/movie_created', methods=['POST', 'GET'])
@@ -99,4 +101,4 @@ def videolib_created():
     return render_template("videolib_created.html", videolib_title=videolib_title, owner=owner, videolib_movies=videolib_movies)
 
 if __name__ == "__main__":
-    app.run(host="10.11.4.81", debug=True)
+    app.run(host=config["web_address"], port=config["web_port"], debug=True)
