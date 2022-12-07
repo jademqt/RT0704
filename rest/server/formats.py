@@ -34,7 +34,9 @@ def is_movie_uri(uri):
     return False
 
 
-def dict_is_person(d):
+def json_is_person(json_str):
+    d = json.loads(json_str)
+
     if (len(d) != 2):
         return False
 

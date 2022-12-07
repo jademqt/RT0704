@@ -4,9 +4,6 @@ import json
 from flask import Flask, request
 
 from formats import *
-from person import *
-from movie import *
-from vlib import *
 
 
 def path_from_uri(uri, dotflag):
@@ -17,29 +14,57 @@ def path_from_uri(uri, dotflag):
     return path
 
 
-def func_get_test(uri):
-    return "test get uri = {}".format(uri)    
+def func_get(uri):
+    path = path_from_uri(uri, False)
+
+    if uri == "api/vlib" or uri == "api/persons" or uri == "api/movies":
+        files = os.listdir(path)
+        ret = ""
+        for f in files:
+            ret += uri + "/"
+            ret += f
+            ret = ret[:-5] # remove the extension 
+            ret += '\n'
+
+        return ret
+ 
+    path += '.json'
+
+    if not os.path.exists(path):
+        return "NOK"
+   
+    with open(path, "r") as f:
+        obj = json.load(uri)
+
+    return obj
 
 def func_put_test(uri):
-    return "test put uri = {}".format(uri)
+    return "ptdr uri : {}".format(uri)    
 
-def func_post_test(uri):
+def func_post(uri):
     objtype = uri.split('/')[1]
     full_path = path_from_uri(uri, True)
-   
+
+    print("1")
+
     # No data
     if len(request.data) == 0:
         return "NOK"
+
+    print("2")
 
     # File exists
     if (os.path.exists(full_path)):
         return "NOK"
 
-    json_obj = request.get_json()
+    json_rec = request.get_json(force=True)
+    json_obj = json.dumps(json_rec)
+    print("3 : {}".format(json_obj))
+    print(type(json_obj))
 
     # Check format
     if (objtype == 'persons'):
-        if not dict_is_person(json_obj):
+        if not json_is_person(json_obj):
             return "NOK"
     elif (objtype == 'movies'):
         if not json_is_movie(json_obj):
@@ -48,7 +73,7 @@ def func_post_test(uri):
         if not json_is_vlib(json_obj):
             return "NOK"
 
-    print("[debug] received json object : ", json_obj)
+    print("[debug] received valid json object : ", json_obj)
 
     # Write to file
     with open(full_path, "w") as f:
@@ -69,14 +94,14 @@ def func_del(uri):
 
 
 # load config
-with open("config.json", "r") as f:
+with open("/home/toto/RT0704/rest/server/config.json", "r") as f:
     config = json.load(f)
 
 # differentiate action based on HTTP method
 methodParse = {
-    "GET": func_get_test,
+    "GET": func_get,
     "PUT": func_put_test,
-    "POST": func_post_test,
+    "POST": func_post,
     "DELETE": func_del
 }
 
@@ -90,12 +115,6 @@ for fpath in os.listdir(config["path_vlib"]):
 
 for path in vidlib_path_arr:
     vidlib_arr.append(Videolib().new_from_file(path))
-
-print("[DEBUG] searching for libraries in " + config["path_vlib"])
-print("video libraries found :")
-for lib in vidlib_path_arr:
-    print(lib)
-
 
 app = Flask(__name__)
 
