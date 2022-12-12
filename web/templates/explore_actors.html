@@ -52,30 +52,22 @@
     <div class="text-center mt-5">
         <h1>Actors</h1>
         <h2>Data base</h2>
-	<table>
-		<tr>
-			<th>Prenom</th>
-			<th>Nom</th>
-   			<th>Type</th>
-		</tr>
-
-		{% for prenom in actor_pre %}
-		{% for nom in actor_nom %}
-		{% for tag in actor_tag %}
-
-		<tr>
-			<td>{{prenom}}</td>
-			<td>{{nom}}</td>
-			<td>{{tag}}</td>
-		</tr>
-
-		{% endfor %}
-		{% endfor %}
-		{% endfor %}
-
-	</table>
     </div>
-
+    
+    <table>
+	    <tr>
+		    <th>Prenom</th>
+		    <th>Nom</th>
+		    <th>Type</th>
+	    </tr>
+	    {% for tup in flist %}
+	    <tr>
+		    <td>{{ tup[0] }}</td>
+		    <td>{{ tup[1] }}</td>
+		    <td>{{ tup[2] }}</td>
+	    </tr>
+	    {% endfor %}
+    </table>
 
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

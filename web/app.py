@@ -69,17 +69,16 @@ def delete_videolib():
 
 @app.route('/explore_actors')
 def explore_actors():
-    fname_list = []
-    lname_list = []
-    tag_list = []
+    full_list = []
+    person_tup = ()
 
     for u in persons_uri_list:
         jsobj = json.loads(get_person(u).content)
-        fname_list.append(jsobj['first_name'])
-        lname_list.append(jsobj['last_name'])
-        tag_list.append(jsobj['tag'])
+        person_tup = (jsobj['first_name'], jsobj['last_name'], jsobj['tag'])
+        full_list.append(person_tup)
 
-    return render_template("explore_actors.html", actor_pre = fname_list, actor_nom = lname_list, actor_tag = tag_list)
+
+    return render_template("explore_actors.html", flist = full_list)
 
 @app.route('/explore_movies')
 def explore_movies():
