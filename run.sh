@@ -10,7 +10,7 @@ python3 web/app.py > log/log_web 2>&1 &
 pid2=$!
 echo "Web server running on port 8000, pid ${pid2}"
 
-trap "echo killing servers...; kill ${pid1} ${pid2}; echo done.; exit" SIGINT SIGQUIT
+trap "echo Killing servers...; kill ${pid1} ${pid2}; echo Done.; exit" SIGINT SIGQUIT
 
-echo "press [Ctrl+C] to stop..."
+echo "Press [Ctrl+C] to stop..."
 wait

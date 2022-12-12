@@ -1,0 +1,14 @@
+ * Serving Flask app 'sv'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:8000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 409-038-150
+127.0.0.1 - - [12/Dec/2022 07:17:40] "GET /api/persons HTTP/1.1" 200 -
+127.0.0.1 - - [12/Dec/2022 07:17:40] "GET /api/movies HTTP/1.1" 200 -
+127.0.0.1 - - [12/Dec/2022 07:17:40] "GET /api/vlib HTTP/1.1" 200 -
+127.0.0.1 - - [12/Dec/2022 07:17:40] "GET /api/persons HTTP/1.1" 200 -
+127.0.0.1 - - [12/Dec/2022 07:17:40] "GET /api/movies HTTP/1.1" 200 -
+127.0.0.1 - - [12/Dec/2022 07:17:40] "GET /api/vlib HTTP/1.1" 200 -
