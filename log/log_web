@@ -1,0 +1,174 @@
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://10.11.4.65:8001
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 124-535-883
+10.8.0.30 - - [12/Dec/2022 10:12:20] "GET /import_movies HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 10:12:20] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:12:20] "GET /static/js/scripts.js HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:12:27] "GET /delete_actors HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 10:12:27] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:12:27] "GET /static/js/scripts.js HTTP/1.1" 304 -
+ * Detected change in '/home/toto/RT0704/web/app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 124-535-883
+10.8.0.30 - - [12/Dec/2022 10:12:59] "GET /delete_actors HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 10:12:59] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:12:59] "GET /static/js/scripts.js HTTP/1.1" 304 -
+ * Detected change in '/home/toto/RT0704/web/app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 124-535-883
+10.8.0.30 - - [12/Dec/2022 10:14:12] "GET /delete_movies HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 10:14:12] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:14:12] "GET /static/js/scripts.js HTTP/1.1" 304 -
+ * Detected change in '/home/toto/RT0704/web/app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 124-535-883
+ * Detected change in '/home/toto/RT0704/web/app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 124-535-883
+10.8.0.30 - - [12/Dec/2022 10:21:10] "GET /delete_movies HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/toto/RT0704/web/app.py", line 72, in delete_movies
+    create_movies_template()
+NameError: name 'create_movies_template' is not defined
+10.8.0.30 - - [12/Dec/2022 10:21:10] "GET /delete_movies?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 10:21:10] "GET /delete_movies?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 10:21:10] "GET /delete_movies?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 10:21:10] "GET /delete_movies?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 304 -
+ * Detected change in '/home/toto/RT0704/web/app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 124-535-883
+10.8.0.30 - - [12/Dec/2022 10:24:38] "GET /delete_movies HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 10:24:38] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:24:38] "GET /static/js/scripts.js HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:24:55] "GET /delete_videolib HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 10:24:55] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:24:55] "GET /static/js/scripts.js HTTP/1.1" 304 -
+ * Detected change in '/home/toto/RT0704/web/app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 124-535-883
+10.8.0.30 - - [12/Dec/2022 10:34:37] "GET /delete_videolib HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/toto/RT0704/web/app.py", line 82, in delete_videolib
+    create_videolib_list()
+  File "/home/toto/RT0704/web/app.py", line 45, in create_videolib_list
+    lib_list.append(per[10:])
+NameError: name 'per' is not defined
+10.8.0.30 - - [12/Dec/2022 10:34:37] "GET /delete_videolib?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 10:34:37] "GET /delete_videolib?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 10:34:37] "GET /delete_videolib?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 10:34:37] "GET /delete_videolib?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 304 -
+ * Detected change in '/home/toto/RT0704/web/app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 124-535-883
+10.8.0.30 - - [12/Dec/2022 10:35:11] "GET /delete_videolib HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 10:35:11] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:35:11] "GET /static/js/scripts.js HTTP/1.1" 304 -
+ * Detected change in '/home/toto/RT0704/web/app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 124-535-883
+10.8.0.30 - - [12/Dec/2022 10:37:41] "GET /delete_videolib HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 10:37:41] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:37:41] "GET /static/js/scripts.js HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:38:50] "GET /delete_videolib HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 10:38:50] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:38:50] "GET /static/js/scripts.js HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:39:08] "GET /delete_videolib HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 10:39:08] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:39:08] "GET /static/js/scripts.js HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:39:17] "GET /delete_videolib HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 10:39:17] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:39:17] "GET /static/js/scripts.js HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:41:32] "GET /delete_videolib HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 10:41:32] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:41:32] "GET /static/js/scripts.js HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:42:05] "GET /delete_videolib HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 10:42:05] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:42:05] "GET /static/js/scripts.js HTTP/1.1" 304 -
+ * Detected change in '/home/toto/RT0704/web/app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 124-535-883
+10.8.0.30 - - [12/Dec/2022 10:42:37] "GET /delete_videolib HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 10:42:37] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:42:37] "GET /static/js/scripts.js HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:45:15] "GET /import_movies HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 10:45:15] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:45:15] "GET /static/js/scripts.js HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:45:18] "GET /import_actors HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 10:45:18] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:45:18] "GET /static/js/scripts.js HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:45:21] "POST /actor_created HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 10:45:21] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:45:21] "GET /static/js/scripts.js HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:45:23] "GET /delete_movie HTTP/1.1" 404 -
+10.8.0.30 - - [12/Dec/2022 10:45:23] "GET /favicon.ico HTTP/1.1" 404 -
+10.8.0.30 - - [12/Dec/2022 10:45:29] "GET /delete_movie HTTP/1.1" 404 -
+10.8.0.30 - - [12/Dec/2022 10:45:35] "GET /delete_actors HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 10:45:35] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:45:35] "GET /static/js/scripts.js HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:45:37] "GET /delete_movies HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 10:45:37] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:45:37] "GET /static/js/scripts.js HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:45:40] "GET /import_movies HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 10:45:40] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:45:40] "GET /static/js/scripts.js HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:45:44] "GET /import_actors HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 10:45:44] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:45:45] "GET /static/js/scripts.js HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:45:46] "POST /actor_created HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 10:45:46] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:45:46] "GET /static/js/scripts.js HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:45:48] "GET /delete_movie HTTP/1.1" 404 -
+10.8.0.30 - - [12/Dec/2022 10:45:55] "GET /delete_movie HTTP/1.1" 404 -
+10.8.0.30 - - [12/Dec/2022 10:45:59] "GET /delete_movie HTTP/1.1" 404 -
+10.8.0.30 - - [12/Dec/2022 10:46:01] "GET /delete_actors HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 10:46:01] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:46:01] "GET /static/js/scripts.js HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:46:06] "GET /delete_actors HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 10:46:06] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 10:46:06] "GET /static/js/scripts.js HTTP/1.1" 304 -
+ * Detected change in '/home/toto/RT0704/web/app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 124-535-883
+ * Detected change in '/home/toto/RT0704/web/app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 124-535-883

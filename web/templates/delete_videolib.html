@@ -55,9 +55,10 @@
         <form>
             <div class="form-group">
                 <label class="label_class" for="formGroupExampleInput2">I'm sure I want to delete it...</label>
-                <select id="delete_movie">
-                    <option value="Videolib1">Videolib1</option>
-                    <option value="Videolib2">Videolib2</option>
+                <select id="delete_movie" method='GET' action='delete_videolib'>
+                    {% for lib in lib_list %}
+                    <option value="{{ lib }}">{{ lib }}</option>
+                    {% endfor %}
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Sorry.. or not</button>
