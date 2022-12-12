@@ -58,9 +58,10 @@
             </div>
             <div class="form-group">
                 <label class="label_class" for="formGroupExampleInput2">Owner :</label>
-                <select name="owner" id="import_owner">
-                    <option value="Owner1">Owner1</option>
-                    <option value="Owner2">Owner2</option>
+                <select name="owner" id="import_owner" method="GET" action="/import_videolib">
+                    {% for person in persons_list %}
+                    <option value="{{ person }}">{{ person }}</option>
+                    {% endfor %}
                 </select>
             </div>
             <div class="form-group">
@@ -68,9 +69,10 @@
             </div>
             <div class="form-group">
                 <label class="label_class" for="formGroupExampleInput2">Movies :</label>
-                <select name="videolib_movies" id="import_list_movies" multiple>
-                    <option value="Movie1">Movie1</option>
-                    <option value="Movie2">Movie2</option>
+                <select name="videolib_movies" id="import_list_movies" method="GET" action="/import_movies"  multiple>
+                    {% for mov in movies_list %}
+                    <option value="{{ mov }}">{{ mov }}</option>
+                    {% endfor %}
                 </select>
             </div>
             <div class="form-group">
