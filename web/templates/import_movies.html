@@ -58,9 +58,10 @@
             </div>
             <div class="form-group">
                 <label class="label_class" for="formGroupExampleInput2">Director :</label>
-                <select name="director" id="import_list_actors">
-                    <option value="Director1">Director1</option>
-                    <option value="Director2">Director2</option>
+                <select name="director" id="import_list_actors" method="GET" action="/import_movies">
+                    {% for person in persons_list  %}
+                    <option value="{{ person }}">{{ person }}</option>
+                    {% endfor %}
                 </select>
             </div>
             <div class="form-group">
@@ -69,9 +70,10 @@
             </div>
             <div class="form-group">
                 <label class="label_class" for="formGroupExampleInput2">Actors :</label>
-                <select name="movie_actors" id="import_list_actors" multiple>
-                    <option value="Actor1">Actor1</option>
-                    <option value="Actor2">Actor2</option>
+                <select name="movie_actors" id="import_list_actors" method="GET" action="/import_movies" multiple>
+                    {% for person in persons_list %}
+                    <option value="{{ person }}">{{ person }}</option>
+                    {% endfor %}
                 </select>
             </div>
             <div class="form-group">

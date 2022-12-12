@@ -8,10 +8,6 @@ from apicalls import *
 
 app = Flask(__name__)
 
-persons_uri_list = []
-movies_uri_list = []
-vlib_uri_list = []
-
 # load config
 with open("/home/toto/RT0704/config.json", "r") as f:
     config = json.load(f)
@@ -21,6 +17,20 @@ rest_full_address = "http://" + config["rest_address"] + ":" + str(config["rest_
 persons_uri_list = get_persons_list()
 movies_uri_list = get_movies_list()
 lib_uri_list = get_vlib_list()
+persons_list = []
+movies_list = []
+lib_list = []
+
+def create_persons_list():
+    persons_list.clear()
+    for per in persons_uri_list :
+        persons_list.append(per[12:])
+
+def create_movies_list():
+    movies_list.clear()
+    for mov in movies_uri_list :
+        movies_list.append(mov[11:])
+
 
 @app.route('/')
 def web():
@@ -30,13 +40,16 @@ def web():
 def import_actors():
     return render_template("import_actors.html")
 
-@app.route('/import_movies')
+@app.route('/import_movies', methods=['GET'])
 def import_movies():
-    return render_template('import_movies.html')
+    create_persons_list()
+    return render_template('import_movies.html', persons_list=persons_list)
 
-@app.route('/import_videolib')
+@app.route('/import_videolib', methods=['GET'])
 def import_videolib():
-    return render_template('import_videolib.html')
+    create_persons_list()
+    create_movies_list()
+    return render_template('import_videolib.html', persons_list=persons_list, movies_list=movies_list)
 
 @app.route('/import_owner')
 def import_owner():
