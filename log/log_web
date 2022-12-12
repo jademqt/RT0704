@@ -5,67 +5,34 @@ WARNING: This is a development server. Do not use it in a production deployment.
 Press CTRL+C to quit
  * Restarting with stat
  * Debugger is active!
- * Debugger PIN: 626-527-165
-10.8.0.18 - - [12/Dec/2022 08:35:39] "GET /import_movies HTTP/1.1" 500 -
-Traceback (most recent call last):
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 2548, in __call__
-    return self.wsgi_app(environ, start_response)
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 2528, in wsgi_app
-    response = self.handle_exception(e)
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "/home/toto/RT0704/web/app.py", line 45, in import_movies
-    create_movies_list()
-  File "/home/toto/RT0704/web/app.py", line 32, in create_movies_list
-    movies_list.append(per[10:])
-NameError: name 'per' is not defined
-10.8.0.18 - - [12/Dec/2022 08:35:39] "GET /import_movies?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 304 -
-10.8.0.18 - - [12/Dec/2022 08:35:39] "GET /import_movies?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 304 -
-10.8.0.18 - - [12/Dec/2022 08:35:39] "GET /import_movies?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 304 -
-10.8.0.18 - - [12/Dec/2022 08:35:39] "GET /import_movies?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 304 -
- * Detected change in '/home/toto/RT0704/web/app.py', reloading
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 626-527-165
-10.8.0.18 - - [12/Dec/2022 08:37:33] "GET /import_movies HTTP/1.1" 200 -
-10.8.0.18 - - [12/Dec/2022 08:37:33] "GET /static/css/styles.css HTTP/1.1" 304 -
-10.8.0.18 - - [12/Dec/2022 08:37:33] "GET /static/js/scripts.js HTTP/1.1" 304 -
- * Detected change in '/home/toto/RT0704/web/app.py', reloading
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 626-527-165
- * Detected change in '/home/toto/RT0704/web/app.py', reloading
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 626-527-165
-10.8.0.18 - - [12/Dec/2022 08:41:06] "GET /import_movies HTTP/1.1" 200 -
-10.8.0.18 - - [12/Dec/2022 08:41:06] "GET /static/css/styles.css HTTP/1.1" 304 -
-10.8.0.18 - - [12/Dec/2022 08:41:06] "GET /static/js/scripts.js HTTP/1.1" 304 -
-10.8.0.18 - - [12/Dec/2022 08:41:18] "GET /import_videolib HTTP/1.1" 200 -
-10.8.0.18 - - [12/Dec/2022 08:41:18] "GET /static/css/styles.css HTTP/1.1" 304 -
-10.8.0.18 - - [12/Dec/2022 08:41:18] "GET /static/js/scripts.js HTTP/1.1" 304 -
- * Detected change in '/home/toto/RT0704/web/app.py', reloading
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 626-527-165
-10.8.0.18 - - [12/Dec/2022 08:53:01] "GET /import_videolib HTTP/1.1" 200 -
-10.8.0.18 - - [12/Dec/2022 08:53:01] "GET /static/css/styles.css HTTP/1.1" 304 -
-10.8.0.18 - - [12/Dec/2022 08:53:01] "GET /static/js/scripts.js HTTP/1.1" 304 -
-10.8.0.18 - - [12/Dec/2022 08:53:10] "GET /import_owner HTTP/1.1" 200 -
-10.8.0.18 - - [12/Dec/2022 08:53:10] "GET /static/css/styles.css HTTP/1.1" 304 -
-10.8.0.18 - - [12/Dec/2022 08:53:10] "GET /static/js/scripts.js HTTP/1.1" 304 -
-10.8.0.18 - - [12/Dec/2022 08:53:18] "GET /import_movies HTTP/1.1" 200 -
-10.8.0.18 - - [12/Dec/2022 08:53:18] "GET /static/css/styles.css HTTP/1.1" 304 -
-10.8.0.18 - - [12/Dec/2022 08:53:18] "GET /static/js/scripts.js HTTP/1.1" 304 -
-10.8.0.18 - - [12/Dec/2022 08:53:19] "GET /import_actors HTTP/1.1" 200 -
-10.8.0.18 - - [12/Dec/2022 08:53:20] "GET /static/css/styles.css HTTP/1.1" 304 -
-10.8.0.18 - - [12/Dec/2022 08:53:20] "GET /static/js/scripts.js HTTP/1.1" 304 -
-10.8.0.18 - - [12/Dec/2022 08:53:28] "GET /import_videolib HTTP/1.1" 200 -
-10.8.0.18 - - [12/Dec/2022 08:53:28] "GET /static/css/styles.css HTTP/1.1" 304 -
-10.8.0.18 - - [12/Dec/2022 08:53:28] "GET /static/js/scripts.js HTTP/1.1" 304 -
+ * Debugger PIN: 124-535-883
+10.8.0.30 - - [12/Dec/2022 09:25:04] "GET /import_movies HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 09:25:05] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 09:25:05] "GET /static/js/scripts.js HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 09:25:12] "GET /import_actors HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 09:25:12] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 09:25:12] "GET /static/js/scripts.js HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 09:25:38] "GET /import_movies HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 09:25:38] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 09:25:38] "GET /static/js/scripts.js HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 09:26:27] "GET /import_videolib HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 09:26:27] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 09:26:27] "GET /static/js/scripts.js HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 09:27:26] "GET /explore_actors HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 09:27:26] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 09:27:26] "GET /static/js/scripts.js HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 09:27:35] "GET /delete_actors HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 09:27:35] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 09:27:35] "GET /static/js/scripts.js HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 09:30:03] "GET /delete_videolib HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 09:30:03] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 09:30:03] "GET /static/js/scripts.js HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 09:30:06] "GET /delete_movies HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 09:30:06] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 09:30:06] "GET /static/js/scripts.js HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 09:30:55] "GET /explore_actors HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 09:30:55] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 09:30:55] "GET /static/js/scripts.js HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 09:32:28] "GET /delete_actors HTTP/1.1" 200 -
+10.8.0.30 - - [12/Dec/2022 09:32:28] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.30 - - [12/Dec/2022 09:32:28] "GET /static/js/scripts.js HTTP/1.1" 304 -

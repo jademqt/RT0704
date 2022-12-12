@@ -5,10 +5,10 @@ WARNING: This is a development server. Do not use it in a production deployment.
 Press CTRL+C to quit
  * Restarting with stat
  * Debugger is active!
- * Debugger PIN: 626-527-165
-127.0.0.1 - - [12/Dec/2022 08:35:33] "GET /api/persons HTTP/1.1" 200 -
-127.0.0.1 - - [12/Dec/2022 08:35:33] "GET /api/movies HTTP/1.1" 200 -
-127.0.0.1 - - [12/Dec/2022 08:35:33] "GET /api/vlib HTTP/1.1" 500 -
+ * Debugger PIN: 124-535-883
+127.0.0.1 - - [12/Dec/2022 09:25:02] "GET /api/persons HTTP/1.1" 200 -
+127.0.0.1 - - [12/Dec/2022 09:25:02] "GET /api/movies HTTP/1.1" 200 -
+127.0.0.1 - - [12/Dec/2022 09:25:02] "GET /api/vlib HTTP/1.1" 500 -
 Traceback (most recent call last):
   File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 2548, in __call__
     return self.wsgi_app(environ, start_response)
@@ -27,90 +27,6 @@ Traceback (most recent call last):
   File "/home/toto/RT0704/rest/server/sv.py", line 21, in func_get
     files = os.listdir(path)
 FileNotFoundError: [Errno 2] No such file or directory: '/home/toto/RT0704/rest/api/vlib'
-127.0.0.1 - - [12/Dec/2022 08:35:34] "GET /api/persons HTTP/1.1" 200 -
-127.0.0.1 - - [12/Dec/2022 08:35:34] "GET /api/movies HTTP/1.1" 200 -
-127.0.0.1 - - [12/Dec/2022 08:35:34] "GET /api/vlib HTTP/1.1" 500 -
-Traceback (most recent call last):
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 2548, in __call__
-    return self.wsgi_app(environ, start_response)
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 2528, in wsgi_app
-    response = self.handle_exception(e)
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "/home/toto/RT0704/rest/server/sv.py", line 108, in main_func
-    ans = methodParse[request.method](uri)
-  File "/home/toto/RT0704/rest/server/sv.py", line 21, in func_get
-    files = os.listdir(path)
-FileNotFoundError: [Errno 2] No such file or directory: '/home/toto/RT0704/rest/api/vlib'
-127.0.0.1 - - [12/Dec/2022 08:37:27] "GET /api/persons HTTP/1.1" 200 -
-127.0.0.1 - - [12/Dec/2022 08:37:27] "GET /api/movies HTTP/1.1" 200 -
-127.0.0.1 - - [12/Dec/2022 08:37:27] "GET /api/vlib HTTP/1.1" 500 -
-Traceback (most recent call last):
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 2548, in __call__
-    return self.wsgi_app(environ, start_response)
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 2528, in wsgi_app
-    response = self.handle_exception(e)
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "/home/toto/RT0704/rest/server/sv.py", line 108, in main_func
-    ans = methodParse[request.method](uri)
-  File "/home/toto/RT0704/rest/server/sv.py", line 21, in func_get
-    files = os.listdir(path)
-FileNotFoundError: [Errno 2] No such file or directory: '/home/toto/RT0704/rest/api/vlib'
-127.0.0.1 - - [12/Dec/2022 08:38:24] "GET /api/persons HTTP/1.1" 200 -
-127.0.0.1 - - [12/Dec/2022 08:38:24] "GET /api/movies HTTP/1.1" 200 -
-127.0.0.1 - - [12/Dec/2022 08:38:24] "GET /api/vlib HTTP/1.1" 500 -
-Traceback (most recent call last):
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 2548, in __call__
-    return self.wsgi_app(environ, start_response)
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 2528, in wsgi_app
-    response = self.handle_exception(e)
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "/home/toto/RT0704/rest/server/sv.py", line 108, in main_func
-    ans = methodParse[request.method](uri)
-  File "/home/toto/RT0704/rest/server/sv.py", line 21, in func_get
-    files = os.listdir(path)
-FileNotFoundError: [Errno 2] No such file or directory: '/home/toto/RT0704/rest/api/vlib'
-127.0.0.1 - - [12/Dec/2022 08:40:13] "GET /api/persons HTTP/1.1" 200 -
-127.0.0.1 - - [12/Dec/2022 08:40:13] "GET /api/movies HTTP/1.1" 200 -
-127.0.0.1 - - [12/Dec/2022 08:40:13] "GET /api/vlib HTTP/1.1" 500 -
-Traceback (most recent call last):
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 2548, in __call__
-    return self.wsgi_app(environ, start_response)
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 2528, in wsgi_app
-    response = self.handle_exception(e)
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "/home/toto/RT0704/rest/server/sv.py", line 108, in main_func
-    ans = methodParse[request.method](uri)
-  File "/home/toto/RT0704/rest/server/sv.py", line 21, in func_get
-    files = os.listdir(path)
-FileNotFoundError: [Errno 2] No such file or directory: '/home/toto/RT0704/rest/api/vlib'
-127.0.0.1 - - [12/Dec/2022 08:52:57] "GET /api/persons HTTP/1.1" 200 -
-127.0.0.1 - - [12/Dec/2022 08:52:57] "GET /api/movies HTTP/1.1" 200 -
-127.0.0.1 - - [12/Dec/2022 08:52:57] "GET /api/vlib HTTP/1.1" 500 -
+127.0.0.1 - - [12/Dec/2022 09:25:03] "GET /api/persons HTTP/1.1" 200 -
+127.0.0.1 - - [12/Dec/2022 09:25:03] "GET /api/movies HTTP/1.1" 200 -
+127.0.0.1 - - [12/Dec/2022 09:25:03] "GET /api/vlib HTTP/1.1" 500 -
