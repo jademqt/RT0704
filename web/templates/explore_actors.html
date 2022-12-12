@@ -52,7 +52,28 @@
     <div class="text-center mt-5">
         <h1>Actors</h1>
         <h2>Data base</h2>
-        <!-- Afficher les acteurs ici -->
+	<table>
+		<tr>
+			<th>Prenom</th>
+			<th>Nom</th>
+   			<th>Type</th>
+		</tr>
+
+		{% for prenom in actor_pre %}
+		{% for nom in actor_nom %}
+		{% for tag in actor_tag %}
+
+		<tr>
+			<td>{{prenom}}</td>
+			<td>{{nom}}</td>
+			<td>{{tag}}</td>
+		</tr>
+
+		{% endfor %}
+		{% endfor %}
+		{% endfor %}
+
+	</table>
     </div>
 
 
