@@ -14,23 +14,35 @@ with open("/home/toto/RT0704/config.json", "r") as f:
 
 rest_full_address = "http://" + config["rest_address"] + ":" + str(config["rest_port"]) + "/"
 
-persons_uri_list = get_persons_list()
-movies_uri_list = get_movies_list()
-lib_uri_list = get_vlib_list()
 persons_list = []
 movies_list = []
 lib_list = []
 
+def update_lists():
+    global persons_uri_list
+    persons_uri_list = get_persons_list()
+    global movies_uri_list
+    movies_uri_list = get_movies_list()
+    global lib_uri_list
+    lib_uri_list = get_vlib_list()
+
 def create_persons_list():
+    update_lists()
     persons_list.clear()
     for per in persons_uri_list :
         persons_list.append(per[12:])
 
 def create_movies_list():
+    update_lists()
     movies_list.clear()
     for mov in movies_uri_list :
-        movies_list.append(mov[11:])
+        movies_list.append(mov)
 
+def create_videolib_list():
+    update_lists()
+    lib_list.clear()
+    for lib in lib_uri_list :
+        lib_list.append(lib[9:])
 
 @app.route('/')
 def web():
@@ -55,17 +67,20 @@ def import_videolib():
 def import_owner():
     return render_template('import_owner.html')
 
-@app.route('/delete_actors')
+@app.route('/delete_actors', methods=['GET'])
 def delete_actors():
-    return render_template("delete_actors.html")
+    create_persons_list()
+    return render_template("delete_actors.html", persons_list=persons_list)
 
-@app.route('/delete_movies')
+@app.route('/delete_movies', methods=['GET'])
 def delete_movies():
-    return render_template('delete_movies.html')
+    create_movies_list()
+    return render_template('delete_movies.html', movies_list=movies_list)
 
-@app.route('/delete_videolib')
+@app.route('/delete_videolib', methods=['GET'])
 def delete_videolib():
-    return render_template('delete_videolib.html')
+    create_videolib_list()
+    return render_template('delete_videolib.html', lib_list=lib_list)
 
 @app.route('/explore_actors')
 def explore_actors():
@@ -96,24 +111,22 @@ def actor_created():
     last_name = request.form.get('import_lastname')
 
     res = new_person(first_name, last_name, "actor") 
-
-    persons_uri_list = get_persons_list()
-    
+    #rajouter condition pour voir si res == ok ou pas
+    update_lists()
     return render_template("actor_created.html", first_name=first_name, last_name=last_name)
 
 @app.route('/owner_created', methods=['POST', 'GET'])
 def owner_created():
     owner_first_name = request.form.get('owner_first_name')
     owner_last_name = request.form.get('owner_last_name')
-    
+    #rajouter condition
     res = new_person(owner_first_name, owner_last_name, "owner")
-
-    persons_uri_list = get_persons_list()
-
+    update_lists()
     return render_template("owner_created.html",  owner_first_name=owner_first_name, owner_last_name=owner_last_name)
 
 @app.route('/movie_created', methods=['POST', 'GET'])
 def movie_created():
+    #TO DO
     title = request.form.get('title')
     director = request.form.get('director')
     movie_year = request.form.get('movie_year')
@@ -122,10 +135,13 @@ def movie_created():
 
 @app.route('/videolib_created', methods=['POST', 'GET'])
 def videolib_created():
+    #TO DO
     videolib_title = request.form.get('videolib_title')
     owner = request.form.get('owner')
     videolib_movies = request.form.getlist('videolib_movies')
     return render_template("videolib_created.html", videolib_title=videolib_title, owner=owner, videolib_movies=videolib_movies)
+
+#Créer les fichiers movie_deleted etc. en suivant le même principe que pour owner_created
 
 if __name__ == "__main__":
     app.run(host=config["web_address"], port=config["web_port"], debug=True)

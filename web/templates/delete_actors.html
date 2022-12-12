@@ -55,9 +55,10 @@
         <form>
             <div class="form-group">
                 <label class="label_class" for="formGroupExampleInput2">Actor to say goodbye to...</label>
-                <select id="delete_actor">
-                    <option value="Actor1">Actor1</option>
-                    <option value="Actor2">Actor2</option>
+                <select id="delete_actor" method='GET' action='/delete_actors'>
+                    {% for person in persons_list %}
+                    <option value="{{ person }}">{{ person }}</option>
+                    {% endfor %}
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Goodbye...</button>
