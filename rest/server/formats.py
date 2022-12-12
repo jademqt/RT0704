@@ -37,10 +37,10 @@ def is_movie_uri(uri):
 def json_is_person(json_str):
     d = json.loads(json_str)
 
-    if (len(d) != 2):
+    if (len(d) != 3):
         return False
 
-    if (('first_name' in d) and ('last_name' in d)):
+    if (('first_name' in d) and ('last_name' in d) and ('tag' in d)):
         return True
 
     return False

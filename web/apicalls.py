@@ -8,6 +8,10 @@ with open("/home/toto/RT0704/config.json", "r") as f:
 rest_full_address = "http://" + config["rest_address"] + ":" + str(config["rest_port"]) + "/"
 
 
+# GET requests
+# used to get info about entry
+# expected answer : JSON object
+
 def get_persons_list():
     res = requests.get(rest_full_address + "api/persons")
     return bytes.decode(res.content).split()
@@ -20,38 +24,54 @@ def get_vlib_list():
     res = requests.get(rest_full_address + "api/vlib")
     return bytes.decode(res.content).split()
 
+def get_person(uri):
+    return requests.get(rest_full_address + uri)
 
-def new_person(fname, lname):
-    pdict = { "first_name" : fname, "last_name" : lname }
+def get_movie(uri):
+    return requests.get(rest_full_api + uri)
 
+def get_vlib(uri):
+    return requests.get(rest_full_api + uri)
+
+
+
+# POST requests
+# used to create an entry
+# expected answer : OK / NOK
+
+def new_person(fname, lname, tag):
+    pdict = { "first_name" : fname, "last_name" : lname, 'tag' : tag }
     return requests.post(rest_full_address + "api/persons/" + fname.lower(), json = pdict)
-
-def get_person(target):
-    return requests.get(rest_full_address + "api/persons/" + target)
-
-def del_person(target):
-    return requests.delete(rest_full_address + "api/persons/" + target)
-
 
 def new_movie():
     #TODO
     pass
 
-def get_movie(target):
-    return requests.get(rest_full_api + "api/movies/" + target)
-
-def del_movie(target):
-    return requests.delete(rest_full_api + "api/movies/" + target)
-
-
 def new_vlib():
     #TODO
     pass
 
-def get_vlib(target):
-    return requests.get(rest_full_api + "api/vlib/" + target)
+
+# DELETE requests
+# used to delete an entry (duh)
+# expected answer : OK / NOK
+
+def del_person(target):
+    return requests.delete(rest_full_address + "api/persons/" + target)
+
+def del_movie(target):
+    return requests.delete(rest_full_api + "api/movies/" + target)
 
 def del_vlib(target):
     return requests.delete(rest_full_api + "api/vlib/" + target)
 
 
+# PUT requests
+# used to modify and entry
+# expected answer : OK / NOK
+
+# def mod_person(????)
+
+# def mod_movie(????)
+
+# def mod_vlib(????)

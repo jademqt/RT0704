@@ -56,7 +56,17 @@ def delete_videolib():
 
 @app.route('/explore_actors')
 def explore_actors():
-    return render_template("explore_actors.html")
+    fname_list = []
+    lname_list = []
+    tag_list = []
+
+    for u in persons_uri_list:
+        jsobj = json.loads(get_person(u).content)
+        fname_list.append(jsobj['first_name'])
+        lname_list.append(jsobj['last_name'])
+        tag_list.append(jsobj['tag'])
+
+    return render_template("explore_actors.html", actor_pre = fname_list, actor_nom = lname_list, actor_tag = tag_list)
 
 @app.route('/explore_movies')
 def explore_movies():
@@ -72,7 +82,9 @@ def actor_created():
     first_name = request.form.get('import_firstname')
     last_name = request.form.get('import_lastname')
 
-    res = new_person(first_name, last_name) 
+    res = new_person(first_name, last_name, "actor") 
+
+    persons_uri_list = get_persons_list()
     
     return render_template("actor_created.html", first_name=first_name, last_name=last_name)
 
@@ -81,7 +93,9 @@ def owner_created():
     owner_first_name = request.form.get('owner_first_name')
     owner_last_name = request.form.get('owner_last_name')
     
-    res = new_person(owner_first_name, owner_last_name)
+    res = new_person(owner_first_name, owner_last_name, "owner")
+
+    persons_uri_list = get_persons_list()
 
     return render_template("owner_created.html",  owner_first_name=owner_first_name, owner_last_name=owner_last_name)
 
