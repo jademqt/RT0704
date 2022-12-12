@@ -6,9 +6,11 @@ Press CTRL+C to quit
  * Restarting with stat
  * Debugger is active!
  * Debugger PIN: 409-038-150
-127.0.0.1 - - [12/Dec/2022 07:17:40] "GET /api/persons HTTP/1.1" 200 -
-127.0.0.1 - - [12/Dec/2022 07:17:40] "GET /api/movies HTTP/1.1" 200 -
-127.0.0.1 - - [12/Dec/2022 07:17:40] "GET /api/vlib HTTP/1.1" 200 -
-127.0.0.1 - - [12/Dec/2022 07:17:40] "GET /api/persons HTTP/1.1" 200 -
-127.0.0.1 - - [12/Dec/2022 07:17:40] "GET /api/movies HTTP/1.1" 200 -
-127.0.0.1 - - [12/Dec/2022 07:17:40] "GET /api/vlib HTTP/1.1" 200 -
+127.0.0.1 - - [12/Dec/2022 08:52:20] "GET /api/persons HTTP/1.1" 200 -
+127.0.0.1 - - [12/Dec/2022 08:52:20] "GET /api/movies HTTP/1.1" 200 -
+127.0.0.1 - - [12/Dec/2022 08:52:20] "GET /api/vlib HTTP/1.1" 200 -
+127.0.0.1 - - [12/Dec/2022 08:52:20] "GET /api/persons HTTP/1.1" 200 -
+127.0.0.1 - - [12/Dec/2022 08:52:20] "GET /api/movies HTTP/1.1" 200 -
+127.0.0.1 - - [12/Dec/2022 08:52:20] "GET /api/vlib HTTP/1.1" 200 -
+127.0.0.1 - - [12/Dec/2022 08:52:22] "GET /api/persons/cyril HTTP/1.1" 200 -
+127.0.0.1 - - [12/Dec/2022 08:52:22] "GET /api/persons/jade HTTP/1.1" 200 -
