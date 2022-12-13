@@ -84,17 +84,16 @@ def delete_videolib():
 
 @app.route('/explore_actors')
 def explore_actors():
-    fname_list = []
-    lname_list = []
-    tag_list = []
+    full_list = []
+    person_tup = ()
 
     for u in persons_uri_list:
         jsobj = json.loads(get_person(u).content)
-        fname_list.append(jsobj['first_name'])
-        lname_list.append(jsobj['last_name'])
-        tag_list.append(jsobj['tag'])
+        person_tup = (jsobj['first_name'], jsobj['last_name'], jsobj['tag'])
+        full_list.append(person_tup)
 
-    return render_template("explore_actors.html", actor_pre = fname_list, actor_nom = lname_list, actor_tag = tag_list)
+
+    return render_template("explore_actors.html", flist = full_list)
 
 @app.route('/explore_movies')
 def explore_movies():
@@ -131,6 +130,11 @@ def movie_created():
     director = request.form.get('director')
     movie_year = request.form.get('movie_year')
     movie_actors = request.form.getlist('movie_actors')
+
+    res = new_movie(title, director, movie_year, movie_actors).content
+    if res == "NOK":
+        print("yo wtf dawg")
+
     return render_template("movie_created.html", title=title, director=director, movie_year=movie_year, movie_actors=movie_actors)
 
 @app.route('/videolib_created', methods=['POST', 'GET'])
@@ -139,6 +143,11 @@ def videolib_created():
     videolib_title = request.form.get('videolib_title')
     owner = request.form.get('owner')
     videolib_movies = request.form.getlist('videolib_movies')
+
+    res = new_vlib(videolib_title, owner, videolib_movies)
+    if res == "NOK":
+        print("BIZARRE")
+
     return render_template("videolib_created.html", videolib_title=videolib_title, owner=owner, videolib_movies=videolib_movies)
 
 #Créer les fichiers movie_deleted etc. en suivant le même principe que pour owner_created

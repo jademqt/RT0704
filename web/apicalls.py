@@ -42,13 +42,28 @@ def new_person(fname, lname, tag):
     pdict = { "first_name" : fname, "last_name" : lname, 'tag' : tag }
     return requests.post(rest_full_address + "api/persons/" + fname.lower(), json = pdict)
 
-def new_movie():
-    #TODO
-    pass
 
-def new_vlib():
-    #TODO
-    pass
+def new_movie(title, direc, year, actors):
+    dir_uri = "api/persons/" + direc
+    act_uris = []
+
+    for a in actors:
+        act_uris.append("api/persons/" + a)
+
+    mdict = { "title": title, "year": int(year), "director": dir_uri, "actors": act_uris }
+
+    return requests.post(rest_full_address + "api/movies/" + title.lower(), json = mdict)
+    
+
+def new_vlib(title, owner, movies):
+    owner_uri = "api/persons/" + owner
+    mov_uris = []
+    for m in movies:
+        mov_uris.append("api/movies/" + m)
+
+    vdict = { "title": title, "owner": owner_uri, "movies": mov_uris }
+
+    return requests.post(rest_full_address + "api/vlib/" + title.lower(), json = vdict)
 
 
 # DELETE requests

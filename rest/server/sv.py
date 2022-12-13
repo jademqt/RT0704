@@ -55,15 +55,15 @@ def func_post(uri):
 
     json_rec = request.get_json(force=True)
     json_obj = json.dumps(json_rec)
-    print("3 : {}".format(json_obj))
-    print(type(json_obj))
 
     # Check format
     if (objtype == 'persons'):
         if not json_is_person(json_obj):
             return "NOK"
     elif (objtype == 'movies'):
+        print("92")
         if not json_is_movie(json_obj):
+            print("izi")
             return "NOK"
     elif (objtype == 'vlib'):
         if not json_is_vlib(json_obj):

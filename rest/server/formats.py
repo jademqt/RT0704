@@ -71,10 +71,10 @@ def json_is_movie(json_str):
 def json_is_vlib(json_str):
     d = json.loads(json_str)
 
-    if len(d) != 2:
+    if len(d) != 3:
         return False
 
-    if (('owner' in d) and ('movies' in d)):
+    if (('owner' in d) and ('movies' in d) and ('title' in d)):
         mov = d['movies']
 
         for m in mov:

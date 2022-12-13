@@ -1,5 +1,9 @@
 #!/bin/bash
 
+
+#TODO check dossiers existent
+touch log/log_web log/log_rest
+
 # launch rest server
 python3 rest/server/sv.py > log/log_rest 2>&1 &
 pid1=$!
