@@ -142,6 +142,12 @@ def videolib_created():
     return render_template("videolib_created.html", videolib_title=videolib_title, owner=owner, videolib_movies=videolib_movies)
 
 #Créer les fichiers movie_deleted etc. en suivant le même principe que pour owner_created
+@app.route('/actor_deleted', methods=['POST', 'GET'])
+def actor_deleted():
+    person = request.form.get('')
+    res = del_person()
+    if res == 'NOK' :
+        print('erreur dans actor_deleted')
 
 if __name__ == "__main__":
     app.run(host=config["web_address"], port=config["web_port"], debug=True)

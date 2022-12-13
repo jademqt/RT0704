@@ -34,7 +34,6 @@ def get_vlib(uri):
     return requests.get(rest_full_api + uri)
 
 
-
 # POST requests
 # used to create an entry
 # expected answer : OK / NOK
@@ -57,13 +56,13 @@ def new_vlib():
 # expected answer : OK / NOK
 
 def del_person(target):
-    return requests.delete(rest_full_address + "api/persons/" + target)
+    return requests.delete(rest_full_address + "api/persons/" + target).content
 
 def del_movie(target):
-    return requests.delete(rest_full_api + "api/movies/" + target)
+    return requests.delete(rest_full_api + "api/movies/" + target).content
 
 def del_vlib(target):
-    return requests.delete(rest_full_api + "api/vlib/" + target)
+    return requests.delete(rest_full_api + "api/vlib/" + target).content
 
 
 # PUT requests
