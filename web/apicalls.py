@@ -74,10 +74,10 @@ def del_person(target):
     return requests.delete(rest_full_address + "api/persons/" + target).content
 
 def del_movie(target):
-    return requests.delete(rest_full_api + "api/movies/" + target).content
+    return requests.delete(rest_full_address + "api/movies/" + target).content
 
 def del_vlib(target):
-    return requests.delete(rest_full_api + "api/vlib/" + target).content
+    return requests.delete(rest_full_address + "api/vlib/" + target).content
 
 
 # PUT requests

@@ -52,10 +52,10 @@
     <div class="text-center mt-5">
         <h1>Do you want to delete an actor? </h1>
         <span>Are you sure... maybe is last show was only a mistake...  </span>
-        <form>
+        <form action='/actor_deleted' method='POST'>
             <div class="form-group">
                 <label class="label_class" for="formGroupExampleInput2">Actor to say goodbye to...</label>
-                <select id="delete_actor" method='GET' action='/delete_actors'>
+                <select name='actor' id="delete_actor" method='GET' action='/delete_actors'>
                     {% for person in persons_list %}
                     <option value="{{ person }}">{{ person }}</option>
                     {% endfor %}

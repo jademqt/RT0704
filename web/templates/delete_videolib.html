@@ -52,10 +52,10 @@
     <div class="text-center mt-5">
         <h1>Do you want to delete a videolib? </h1>
         <span>Even if no one looked at it, it "may" be useful... who knows? Think it twice mate </span>
-        <form>
+        <form action='/videolib_deleted' method='POST'>
             <div class="form-group">
                 <label class="label_class" for="formGroupExampleInput2">I'm sure I want to delete it...</label>
-                <select id="delete_movie" method='GET' action='delete_videolib'>
+                <select name='videolib' id="delete_movie" method='GET' action='delete_videolib'>
                     {% for lib in lib_list %}
                     <option value="{{ lib }}">{{ lib }}</option>
                     {% endfor %}

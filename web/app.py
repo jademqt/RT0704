@@ -36,8 +36,7 @@ def create_movies_list():
     update_lists()
     movies_list.clear()
     for mov in movies_uri_list :
-        movies_list.append(mov)
-
+        movies_list.append(mov[11:])
 def create_videolib_list():
     update_lists()
     lib_list.clear()
@@ -84,6 +83,7 @@ def delete_videolib():
 
 @app.route('/explore_actors')
 def explore_actors():
+    update_lists()
     full_list = []
     person_tup = ()
 
@@ -150,13 +150,38 @@ def videolib_created():
 
     return render_template("videolib_created.html", videolib_title=videolib_title, owner=owner, videolib_movies=videolib_movies)
 
-#Créer les fichiers movie_deleted etc. en suivant le même principe que pour owner_created
 @app.route('/actor_deleted', methods=['POST', 'GET'])
 def actor_deleted():
-    person = request.form.get('')
-    res = del_person()
+    actor_to_del = request.form.get('actor')
+    res = del_person(actor_to_del)
     if res == 'NOK' :
         print('erreur dans actor_deleted')
+    else:
+        print(actor_to_del + ' has been deleted with success ')
+        update_lists()
+    return render_template("actor_deleted.html", actor_to_del=actor_to_del)
+
+@app.route('/movie_deleted', methods=['POST', 'GET'])
+def movie_deleted():
+    movie_to_del = request.form.get('movie')
+    res = del_movie(movie_to_del)
+    if res == 'NOK' :
+        print('erreur dans movie_deleted')
+    else :
+        print(movie_to_del + ' has been deleted with success ')
+        upadate_lists()
+    return render_template('movie_deleted.html', movie_to_del=movie_to_del)
+
+@app.route('/videolib_deleted', methods=['POST', 'GET'])
+def videolib_deleted():
+    videolib_to_del = request.form.get('videolib')
+    res = del_vlib(videolib_to_del)
+    if res == 'NOK' :
+        print('erreur dans videolib_deleted')
+    else :
+        print(videolib_to_del + ' has been deleted with success')
+        upadate_lists()
+    return render_template('videolib_deleted.html', videolib_to_del=videolib_to_del)
 
 if __name__ == "__main__":
     app.run(host=config["web_address"], port=config["web_port"], debug=True)

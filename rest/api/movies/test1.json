@@ -1,8 +1,0 @@
-{
-	"director": "api/persons/cyril",
-	"title": "Blanche neige et les 7 mains",
-	"year": 1000,
-	"actors": [
-		"api/persons/jade"
-	]
-}
