@@ -5,53 +5,12 @@ WARNING: This is a development server. Do not use it in a production deployment.
 Press CTRL+C to quit
  * Restarting with stat
  * Debugger is active!
- * Debugger PIN: 132-904-254
-10.8.0.10 - - [14/Dec/2022 07:56:59] "GET /explore_actors HTTP/1.1" 200 -
-10.8.0.10 - - [14/Dec/2022 07:56:59] "GET /static/css/styles.css HTTP/1.1" 200 -
-10.8.0.10 - - [14/Dec/2022 07:56:59] "GET /static/js/scripts.js HTTP/1.1" 304 -
-10.8.0.10 - - [14/Dec/2022 07:57:19] "GET /static/css/styles.css HTTP/1.1" 304 -
-10.8.0.10 - - [14/Dec/2022 08:02:21] "GET /explore_actors HTTP/1.1" 200 -
-10.8.0.10 - - [14/Dec/2022 08:02:21] "GET /static/css/styles.css HTTP/1.1" 200 -
-10.8.0.10 - - [14/Dec/2022 08:02:21] "GET /static/js/scripts.js HTTP/1.1" 304 -
- * Detected change in '/home/toto/RT0704/web/app.py', reloading
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 132-904-254
- * Detected change in '/home/toto/RT0704/web/app.py', reloading
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 132-904-254
-10.8.0.10 - - [14/Dec/2022 08:20:44] "GET /explore_actors HTTP/1.1" 200 -
-10.8.0.10 - - [14/Dec/2022 08:20:45] "GET /static/css/styles.css HTTP/1.1" 304 -
-10.8.0.10 - - [14/Dec/2022 08:20:45] "GET /static/js/scripts.js HTTP/1.1" 304 -
-10.8.0.10 - - [14/Dec/2022 08:20:46] "GET /explore_movies HTTP/1.1" 500 -
-Traceback (most recent call last):
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 2548, in __call__
-    return self.wsgi_app(environ, start_response)
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 2528, in wsgi_app
-    response = self.handle_exception(e)
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "/home/toto/RT0704/web/app.py", line 105, in explore_movies
-    jsobj = json.loads(get_movie(u).content)
-  File "/home/toto/RT0704/web/apicalls.py", line 31, in get_movie
-    return requests.get(rest_full_api + uri)
-NameError: name 'rest_full_api' is not defined
-10.8.0.10 - - [14/Dec/2022 08:20:46] "GET /explore_movies?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
-10.8.0.10 - - [14/Dec/2022 08:20:46] "GET /explore_movies?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
-10.8.0.10 - - [14/Dec/2022 08:20:46] "GET /explore_movies?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
-10.8.0.10 - - [14/Dec/2022 08:20:47] "GET /explore_movies?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 304 -
- * Detected change in '/home/toto/RT0704/web/apicalls.py', reloading
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 132-904-254
-10.8.0.10 - - [14/Dec/2022 08:21:35] "GET /explore_movies HTTP/1.1" 500 -
+ * Debugger PIN: 708-850-244
+10.8.0.22 - - [14/Dec/2022 13:02:03] "GET / HTTP/1.1" 200 -
+10.8.0.22 - - [14/Dec/2022 13:02:03] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.22 - - [14/Dec/2022 13:02:03] "GET /static/js/scripts.js HTTP/1.1" 304 -
+10.8.0.22 - - [14/Dec/2022 13:02:03] "GET /assets/favicon.ico HTTP/1.1" 404 -
+10.8.0.22 - - [14/Dec/2022 13:02:13] "GET /explore_movies HTTP/1.1" 500 -
 Traceback (most recent call last):
   File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 2548, in __call__
     return self.wsgi_app(environ, start_response)
@@ -74,17 +33,13 @@ Traceback (most recent call last):
   File "/usr/lib/python3.8/json/decoder.py", line 355, in raw_decode
     raise JSONDecodeError("Expecting value", s, err.value) from None
 json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-10.8.0.10 - - [14/Dec/2022 08:21:35] "GET /explore_movies?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 304 -
-10.8.0.10 - - [14/Dec/2022 08:21:35] "GET /explore_movies?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 304 -
-10.8.0.10 - - [14/Dec/2022 08:21:35] "GET /explore_movies?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 304 -
-10.8.0.10 - - [14/Dec/2022 08:21:35] "GET /explore_movies?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 304 -
-10.8.0.10 - - [14/Dec/2022 08:22:17] "GET / HTTP/1.1" 200 -
-10.8.0.10 - - [14/Dec/2022 08:22:17] "GET /static/css/styles.css HTTP/1.1" 304 -
-10.8.0.10 - - [14/Dec/2022 08:22:17] "GET /static/js/scripts.js HTTP/1.1" 304 -
-10.8.0.10 - - [14/Dec/2022 08:22:19] "GET /explore_actors HTTP/1.1" 200 -
-10.8.0.10 - - [14/Dec/2022 08:22:19] "GET /static/css/styles.css HTTP/1.1" 304 -
-10.8.0.10 - - [14/Dec/2022 08:22:19] "GET /static/js/scripts.js HTTP/1.1" 304 -
-10.8.0.10 - - [14/Dec/2022 08:22:19] "GET /explore_movies HTTP/1.1" 500 -
+10.8.0.22 - - [14/Dec/2022 13:02:13] "GET /explore_movies?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 304 -
+10.8.0.22 - - [14/Dec/2022 13:02:13] "GET /explore_movies?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 304 -
+10.8.0.22 - - [14/Dec/2022 13:02:13] "GET /explore_movies?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 304 -
+10.8.0.22 - - [14/Dec/2022 13:41:24] "GET / HTTP/1.1" 200 -
+10.8.0.22 - - [14/Dec/2022 13:41:24] "GET /static/css/styles.css HTTP/1.1" 304 -
+10.8.0.22 - - [14/Dec/2022 13:41:24] "GET /static/js/scripts.js HTTP/1.1" 304 -
+10.8.0.22 - - [14/Dec/2022 13:41:38] "GET /explore_movies HTTP/1.1" 500 -
 Traceback (most recent call last):
   File "/home/toto/.local/lib/python3.8/site-packages/flask/app.py", line 2548, in __call__
     return self.wsgi_app(environ, start_response)
@@ -107,6 +62,6 @@ Traceback (most recent call last):
   File "/usr/lib/python3.8/json/decoder.py", line 355, in raw_decode
     raise JSONDecodeError("Expecting value", s, err.value) from None
 json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-10.8.0.10 - - [14/Dec/2022 08:22:19] "GET /explore_movies?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 304 -
-10.8.0.10 - - [14/Dec/2022 08:22:20] "GET /explore_movies?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 304 -
-10.8.0.10 - - [14/Dec/2022 08:22:20] "GET /explore_movies?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 304 -
+10.8.0.22 - - [14/Dec/2022 13:41:38] "GET /explore_movies?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 304 -
+10.8.0.22 - - [14/Dec/2022 13:41:38] "GET /explore_movies?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 304 -
+10.8.0.22 - - [14/Dec/2022 13:41:38] "GET /explore_movies?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 304 -
