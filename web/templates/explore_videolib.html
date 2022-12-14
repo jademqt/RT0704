@@ -52,7 +52,20 @@
     <div class="text-center mt-5">
         <h1>Videolib</h1>
         <h2>Data base</h2>
-        <!-- Afficher les acteurs ici -->
+  	
+	<table>
+		<tr>
+			<th>Title</th>
+			<th>Owner</th>
+		</tr>
+		
+		{% for v in flist %}
+		<tr>
+			<td>{{ v[0] }}</td>
+			<td>{{ v[1] }}</td>
+		</tr>
+		{% endfor %}
+	</table>
     </div>
 
 
