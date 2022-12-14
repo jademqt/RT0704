@@ -1,8 +1,34 @@
 #!/bin/bash
 
+#ip : ip a | grep 10.11 | cut 10-19
 
-#TODO check dossiers existent
+log_dir="log"
+rest_dir="rest"
+web_dir="web"
+
+check_dir () {
+	if [[ -d ${1} ]]
+	then
+		echo "directory ${1} OK"
+	else
+		echo "creating directory ${1}"
+		mkdir ${1}
+	fi
+}
+
+config_ip () {
+	ip=`ip a | grep 10.11 | cut -c 10-19`
+	sed -r "s/10.11.[0-9]+.[0-9]+/${ip}/" config.json | tee config2.json
+	mv config2.json config.json
+}
+
+check_dir ${log_dir}
+check_dir ${rest_dir}
+check_dir ${web_dir}
+
 touch log/log_web log/log_rest
+
+config_ip
 
 # launch rest server
 python3 rest/server/sv.py > log/log_rest 2>&1 &
