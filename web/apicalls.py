@@ -14,15 +14,15 @@ rest_full_address = "http://" + config["rest_address"] + ":" + str(config["rest_
 
 def get_persons_list():
     res = requests.get(rest_full_address + "api/persons")
-    return bytes.decode(res.content).split()
+    return bytes.decode(res.content).split('\n')[:-1]
 
 def get_movies_list():
     res = requests.get(rest_full_address + "api/movies")
-    return bytes.decode(res.content).split()
+    return bytes.decode(res.content).split('\n')[:-1]
 
 def get_vlib_list():
     res = requests.get(rest_full_address + "api/vlib")
-    return bytes.decode(res.content).split()
+    return bytes.decode(res.content).split('\n')[:-1]
 
 def get_person(uri):
     return requests.get(rest_full_address + uri)

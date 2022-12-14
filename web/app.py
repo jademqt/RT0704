@@ -101,15 +101,26 @@ def explore_movies():
     update_lists()
     full_list = []
     movie_tup = ()
+
     for u in movies_uri_list:
         jsobj = json.loads(get_movie(u).content)
-        movie_tup = (jsobj['director'], jsobj['title'], jsobj['year'], jsobj['actors'])
+        movie_tup = (jsobj['title'], jsobj['year'])
         full_list.append(movie_tup)
+
     return render_template('explore_movies.html', full_list=full_list)
 
 @app.route('/explore_videolib')
 def explore_videolib():
-    return render_template('explore_videolib.html')
+    update_lists()
+    full_list = []
+    vlib_tup = ()
+
+    for v in lib_uri_list:
+        jsobj = json.loads(get_vlib(v).content)
+        vlib_tup = (jsobj['title'], jsobj['owner'])
+        full_list.append(vlib_tup)
+
+    return render_template('explore_videolib.html', flist = full_list)
 
 
 @app.route('/actor_created', methods=['POST', 'GET'])
@@ -177,7 +188,7 @@ def movie_deleted():
         print('erreur dans movie_deleted')
     else :
         print(movie_to_del + ' has been deleted with success ')
-        upadate_lists()
+        update_lists()
     return render_template('movie_deleted.html', movie_to_del=movie_to_del)
 
 @app.route('/videolib_deleted', methods=['POST', 'GET'])
@@ -188,7 +199,7 @@ def videolib_deleted():
         print('erreur dans videolib_deleted')
     else :
         print(videolib_to_del + ' has been deleted with success')
-        upadate_lists()
+        update_lists()
     return render_template('videolib_deleted.html', videolib_to_del=videolib_to_del)
 
 if __name__ == "__main__":
