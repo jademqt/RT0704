@@ -77,9 +77,9 @@ def func_post(uri):
 
 def func_del(uri):
     full_path = path_from_uri(uri, True)
-
+    
     if (os.path.exists(full_path)):
-        os.system("rm {}".format(full_path))
+        os.system("rm {}".format("\"" + full_path) + "\"")
         return "OK"
     
     return "NOK"

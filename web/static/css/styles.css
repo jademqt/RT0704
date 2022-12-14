@@ -3951,6 +3951,10 @@ textarea.form-control-lg {
   list-style: none;
 }
 
+#go-back-nav {
+    color: #e97402;
+}
+
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
