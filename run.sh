@@ -1,10 +1,6 @@
 #!/bin/bash
 
-#ip : ip a | grep 10.11 | cut 10-19
-
-log_dir="log"
-rest_dir="rest"
-web_dir="web"
+needed_dirs=("log" "web" "rest" "rest/api" "rest/api/persons" "rest/api/movies" "rest/api/vlib")
 
 check_dir () {
 	if [[ -d ${1} ]]
@@ -22,9 +18,10 @@ config_ip () {
 	mv config2.json config.json
 }
 
-check_dir ${log_dir}
-check_dir ${rest_dir}
-check_dir ${web_dir}
+for i in "${needed_dirs[@]}"
+do
+	check_dir "${i}"
+done
 
 touch log/log_web log/log_rest
 
