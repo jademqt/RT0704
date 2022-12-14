@@ -4,6 +4,7 @@ import json
 from flask import Flask, request
 
 from formats import *
+from search import *
 
 
 def path_from_uri(uri, dotflag):
@@ -18,16 +19,8 @@ def func_get(uri):
     path = path_from_uri(uri, False)
 
     if uri == "api/vlib" or uri == "api/persons" or uri == "api/movies":
-        files = os.listdir(path)
-        ret = ""
-        for f in files:
-            ret += uri + "/"
-            ret += f
-            ret = ret[:-5] # remove the extension 
-            ret += '\n'
+       return list_files(uri) 
 
-        return ret
- 
     path += '.json'
 
     if not os.path.exists(path):
