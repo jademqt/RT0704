@@ -302,8 +302,10 @@ svg {
 }
 
 table {
-  caption-side: bottom;
-  border-collapse: collapse;
+    caption-side: bottom;
+    border-collapse: collapse;
+    width: 90%;
+    margin-left: 5%;
 }
 
 caption {
@@ -318,15 +320,22 @@ th {
   text-align: -webkit-match-parent;
 }
 
+
 thead,
 tbody,
 tfoot,
 tr,
 td,
 th {
-  border-color: inherit;
-  border-style: solid;
-  border-width: 0;
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+    border: 1px solid black;
+    text-align: center;
+}
+
+tr:hover {
+    background-color: #DCDCDC;
 }
 
 label {
