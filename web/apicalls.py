@@ -28,10 +28,10 @@ def get_person(uri):
     return requests.get(rest_full_address + uri)
 
 def get_movie(uri):
-    return requests.get(rest_full_api + uri)
+    return requests.get(rest_full_address + uri)
 
 def get_vlib(uri):
-    return requests.get(rest_full_api + uri)
+    return requests.get(rest_full_address + uri)
 
 
 # POST requests

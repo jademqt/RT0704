@@ -95,9 +95,17 @@ def explore_actors():
 
     return render_template("explore_actors.html", flist = full_list)
 
+#EN COURS : ne fonctionne peut être pas
 @app.route('/explore_movies')
 def explore_movies():
-    return render_template('explore_movies.html')
+    update_lists()
+    full_list = []
+    movie_tup = ()
+    for u in movies_uri_list:
+        jsobj = json.loads(get_movie(u).content)
+        movie_tup = (jsobj['director'], jsobj['title'], jsobj['year'], jsobj['actors'])
+        full_list.append(movie_tup)
+    return render_template('explore_movies.html', full_list=full_list)
 
 @app.route('/explore_videolib')
 def explore_videolib():

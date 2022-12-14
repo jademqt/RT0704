@@ -54,7 +54,22 @@
         <h2>Data base</h2>
         <!-- Afficher les acteurs ici -->
     </div>
-
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Director</th>
+            <th>Year</th>
+            <th>Actor(s)</th>
+        </tr>
+        {% for tup in full_list %}
+        <tr>
+            <td>{{ tup[1] }}</td>
+            <td>{{ tup[0] }}</td>
+            <td>{{ tup[2] }}</td>
+            <td>{{ tup[3] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
 
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
