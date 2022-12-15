@@ -1,5 +1,6 @@
 #-*- coding: utf-8 -*- 
 
+from operator import methodcaller
 import requests
 import json
 from flask import Flask, jsonify, render_template, redirect, url_for, request, session
@@ -225,13 +226,23 @@ def template_videolib():
     str_videolib_chosen = get_movie("api/vlib/" + videolib_chosen.lower()).content
     final_videolib = json.loads(str_videolib_chosen)
     title = final_videolib['title']
-    owner = final_videolib['owner']
+    owner = final_videolib['owner'][12:]
     uri_list_movies = final_videolib['movies']
     tab_list_movies = []
     for mov in uri_list_movies :
         tab_list_movies.append(mov[11:])
 
     return render_template('template_videolib.html', title=title, owner=owner, tab_list_movies=tab_list_movies)
+
+@app.route('/search', methods=['GET'])
+def search_explore():
+    return render_template('search.html')
+
+@app.route('/template_search', methods=['GET'])
+def template_search():
+    search_chosen = request.args.to_dict()['query']
+    #TODO 
+    return render_template('template_search.html', search_chosen=search_chosen)
 
 if __name__ == "__main__":
     app.run(host=config["web_address"], port=config["web_port"], debug=True)
