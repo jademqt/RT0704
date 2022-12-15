@@ -219,5 +219,19 @@ def template_movies():
 
     return render_template('template_movies.html', title=title, director=director, year=year, tab_list_actors=tab_list_actors)
 
+@app.route('/videolib', methods=['GET'])
+def template_videolib():
+    videolib_chosen = request.args.to_dict()['vid']
+    str_videolib_chosen = get_movie("api/vlib/" + videolib_chosen.lower()).content
+    final_videolib = json.loads(str_videolib_chosen)
+    title = final_videolib['title']
+    owner = final_videolib['owner']
+    uri_list_movies = final_videolib['movies']
+    tab_list_movies = []
+    for mov in uri_list_movies :
+        tab_list_movies.append(mov[12:])
+
+    return render_template('template_videolib.html', title=title, owner=owner, tab_list_movies=tab_list_movies)
+
 if __name__ == "__main__":
     app.run(host=config["web_address"], port=config["web_port"], debug=True)

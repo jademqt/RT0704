@@ -61,7 +61,7 @@
 		
 		{% for v in flist %}
 		<tr>
-			<td>{{ v[0] }}</td>
+			<td><a class='hover_liens' href="/videolib?vid={{ v[0] }}">{{ v[0] }}</a></td>
 			<td>{{ v[1] }}</td>
 		</tr>
 		{% endfor %}
