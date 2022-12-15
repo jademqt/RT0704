@@ -10,8 +10,8 @@ rest_full_address = "http://" + config["rest_address"] + ":" + str(config["rest_
 
 # GET requests
 # used to get info about entry
-# expected answer : JSON object
 
+# expected answer : string as "uri1\nuri2\n..."
 def get_persons_list():
     res = requests.get(rest_full_address + "api/persons")
     return bytes.decode(res.content).split('\n')[:-1]
@@ -24,6 +24,8 @@ def get_vlib_list():
     res = requests.get(rest_full_address + "api/vlib")
     return bytes.decode(res.content).split('\n')[:-1]
 
+
+# expected answer : json object
 def get_person(uri):
     return requests.get(rest_full_address + uri)
 
@@ -33,6 +35,12 @@ def get_movie(uri):
 def get_vlib(uri):
     return requests.get(rest_full_address + uri)
 
+
+# search
+# expected answer : string as "uri1\nuri2\n..."
+def search(query):
+    par = { "query": query }
+    return requests.get(rest_full_address + "api/search", params=par)
 
 # POST requests
 # used to create an entry

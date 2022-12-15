@@ -17,9 +17,22 @@ def path_from_uri(uri, dotflag):
 
 def func_get(uri):
     path = path_from_uri(uri, False)
+    
+    print("[xddd] uri = " + uri)
 
+    # list uris
     if uri == "api/vlib" or uri == "api/persons" or uri == "api/movies":
        return list_files(uri) 
+
+    # search query
+    if uri == "api/search":
+        query = request.args.get("query")
+
+        res = search_general(query)
+
+        return res
+
+    # info about object
 
     path += '.json'
 
@@ -46,20 +59,20 @@ def func_post(uri):
     if (os.path.exists(full_path)):
         return "NOK"
 
-    json_rec = request.get_json(force=True)
-    json_obj = json.dumps(json_rec)
+    json_obj = request.get_json(force=True)
+    json_str = json.dumps(json_obj)
 
     # Check format
     if (objtype == 'persons'):
-        if not json_is_person(json_obj):
+        if not json_is_person(json_str):
             return "NOK"
     elif (objtype == 'movies'):
         print("92")
-        if not json_is_movie(json_obj):
+        if not json_is_movie(json_str):
             print("izi")
             return "NOK"
     elif (objtype == 'vlib'):
-        if not json_is_vlib(json_obj):
+        if not json_is_vlib(json_str):
             return "NOK"
 
     # Write to file

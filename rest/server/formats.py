@@ -12,7 +12,7 @@ def is_valid_uri(arg):
         test if arg is a valid uri eg api/xxx/xxx...
     """
 
-    if re.match('api/(movies|persons|vlib)', arg) is not None:
+    if re.match('api/(movies|persons|vlib|search)', arg) is not None:
         parts = arg.split("/")
 
         if len(parts) <= 3: # reject uri if too long
