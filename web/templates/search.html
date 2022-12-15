@@ -53,11 +53,11 @@
     <div class="text-center mt-5">
         <h1>Search</h1>
         <h2> Feel free to look for any actors, movies or librairies we have</h2>
-        <form id='search_form' action="/template_search" method="GET">
+        <form id='search_form' action="/template_search" method="POST">
             <input id="search_input"
                    type="text"
                    placeholder=" Search an actor's name for exemple"
-                   name="search">
+                   name="query">
             <button type="submit" id="search_btn" class="btn btn-primary">Go</button>
         </form>
     </div>
