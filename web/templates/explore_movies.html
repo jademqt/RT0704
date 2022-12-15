@@ -61,7 +61,7 @@
         </tr>
         {% for tup in full_list %}
         <tr>
-            <td>{{ tup[0] }}</td>
+            <td><a class='hover_liens' href="/movie?mov={{ tup[0] }}" >{{ tup[0] }}</a></td>
             <td>{{ tup[1] }}</td>
         </tr>
         {% endfor %}

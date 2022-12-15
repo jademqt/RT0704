@@ -39,9 +39,10 @@
             </tr>
             <tr>
                 <td>Actors</td>
-                <td>
-                    {% for i in range(0, nbr_movies, 2): %}
-                        {{ tab_movies[i]}} {{ tab_movies[i+1]}}
+                <td>   
+                    {% for act in tab_list_actors : %}                    
+                        {{ act }}
+                        </br>
                     {% endfor %}
                 </td>
             </tr>

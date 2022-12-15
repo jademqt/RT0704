@@ -109,6 +109,7 @@ def explore_movies():
 
     return render_template('explore_movies.html', full_list=full_list)
 
+
 @app.route('/explore_videolib')
 def explore_videolib():
     update_lists()
@@ -201,6 +202,22 @@ def videolib_deleted():
         print(videolib_to_del + ' has been deleted with success')
         update_lists()
     return render_template('videolib_deleted.html', videolib_to_del=videolib_to_del)
+
+@app.route('/movie', methods=['GET'])
+def template_movies():
+    movie_chosen = request.args.to_dict()['mov']
+    str_movie_chosen = get_movie("api/movies/" + movie_chosen.lower()).content
+    final_movie = json.loads(str_movie_chosen)
+    title = final_movie['title']
+    director = final_movie['director']
+    director = director[12:]
+    year = final_movie['year']
+    uri_list_actors = final_movie['actors']
+    tab_list_actors = []
+    for act in uri_list_actors :
+        tab_list_actors.append(act[12:])
+
+    return render_template('template_movies.html', title=title, director=director, year=year, tab_list_actors=tab_list_actors)
 
 if __name__ == "__main__":
     app.run(host=config["web_address"], port=config["web_port"], debug=True)
