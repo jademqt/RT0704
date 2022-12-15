@@ -106,6 +106,20 @@ hr {
   color : #e97402;
 }
 
+#search_btn {
+    margin-top: 0;
+    width: 4%;
+}
+
+#search_input {
+    width: 40%;
+    margin-right: 1%;
+}
+
+#search_form {
+    margin-top: 4%;
+}
+
 hr:not([size]) {
   height: 1px;
 }
