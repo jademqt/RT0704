@@ -54,7 +54,9 @@
         <h1>Actors</h1>
         <h2>Data base</h2>
     </div>
-    
+    {% if long==0 : %}
+        <h3> sorry.. this data base is empty for the momment </h3>
+    {% else : %}
     <table>
 	    <tr>
 		    <th>Prenom</th>
@@ -69,7 +71,7 @@
 	    </tr>
 	    {% endfor %}
     </table>
-
+    {% endif %}
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->

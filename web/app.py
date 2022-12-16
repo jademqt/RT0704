@@ -87,14 +87,15 @@ def explore_actors():
     update_lists()
     full_list = []
     person_tup = ()
-
+    long=0
     for u in persons_uri_list:
         jsobj = json.loads(get_person(u).content)
         person_tup = (jsobj['first_name'], jsobj['last_name'], jsobj['tag'])
-        full_list.append(person_tup)
+        if person_tup[2]=="actor" :
+            full_list.append(person_tup)
+        long = len(full_list)
 
-
-    return render_template("explore_actors.html", flist = full_list)
+    return render_template("explore_actors.html", long=long, flist = full_list)
 
 
 @app.route('/explore_movies')
@@ -248,10 +249,10 @@ def template_search():
     tab_uri = list_results.split("\n")[:-1]
     for res in tab_uri :
         tab = res.split('/')
-        tab_object.append(tab[2])
         tab_category.append(tab[1])
+        tab_object.append(descriptor(res))
     long = len(tab_uri)
-    return render_template('template_search.html', tab_category=tab_category, tab_object=tab_object, long=long, search_chosen=search_chosen)
+    return render_template('template_search.html',  tab_category=tab_category, tab_object=tab_object, long=long, search_chosen=search_chosen)
 
 if __name__ == "__main__":
     app.run(host=config["web_address"], port=config["web_port"], debug=True)

@@ -40,13 +40,13 @@ def descriptor(uri):
     cat = uri.split('/')[1]
 
     if cat == 'persons':
-        jsobj = json.load(get_person(uri).content)
+        jsobj = json.loads(get_person(uri).content.decode())
         return jsobj['first_name'] + " " + jsobj['last_name']
     if cat == 'movies':
-        jsobj = json.load(get_movie(uri).content)
+        jsobj = json.loads(get_movie(uri).content.decode())
         return jsobj['title']
     if cat == 'vlib':
-        jsobj = json.load(get_vlib(uri).content)
+        jsobj = json.loads(get_vlib(uri).content.decode())
         return jsobj['title']
 
     return "NOK"

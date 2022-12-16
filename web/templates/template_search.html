@@ -38,7 +38,19 @@
             </tr>
             {% for i in range(0,long) : %}
             <tr>
-                <td>{{tab_object[i] }}</td>
+                <td>
+                {% if tab_category[i]=="movies" : %}
+                    <a class='hover_liens' href="/movie?mov={{tab_object[i]}}">
+                    {{tab_object[i] }}
+                    </a>
+                {% elif tab_category[i]=="vlib" : %}
+                    <a class='hover_liens' href="/videolib?vid={{tab_object[i]}}">
+                    {{ tab_object[i]}}
+                    </a> 
+                {% else : %}
+                {{tab_object[i]}}
+                {% endif %}
+                </td>
                 <td>{{ tab_category[i] }}</td>
             </tr>
             {% endfor %}
