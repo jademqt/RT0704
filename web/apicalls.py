@@ -35,6 +35,21 @@ def get_movie(uri):
 def get_vlib(uri):
     return requests.get(rest_full_address + uri)
 
+# expected answer : string
+def descriptor(uri):
+    cat = uri.split('/')[1]
+
+    if cat == 'persons':
+        jsobj = json.load(get_person(uri).content)
+        return jsobj['first_name'] + " " + jsobj['last_name']
+    if cat == 'movies':
+        jsobj = json.load(get_movie(uri).content)
+        return jsobj['title']
+    if cat == 'vlib':
+        jsobj = json.load(get_vlib(uri).content)
+        return jsobj['title']
+
+    return "NOK"
 
 # search
 # expected answer : string as "uri1\nuri2\n..."
