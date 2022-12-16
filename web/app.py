@@ -238,11 +238,20 @@ def template_videolib():
 def search_explore():
     return render_template('search.html')
 
-@app.route('/template_search', methods=['GET'])
+
+@app.route('/template_search', methods=['GET', 'POST'])
 def template_search():
-    search_chosen = request.args.to_dict()['query']
-    #TODO 
-    return render_template('template_search.html', search_chosen=search_chosen)
+    search_chosen = request.form.get('query')
+    list_results = (search(search_chosen).content).decode()
+    tab_object = []
+    tab_category = []
+    tab_uri = list_results.split("\n")[:-1]
+    for res in tab_uri :
+        tab = res.split('/')
+        tab_object.append(tab[2])
+        tab_category.append(tab[1])
+    long = len(tab_uri)
+    return render_template('template_search.html', tab_category=tab_category, tab_object=tab_object, long=long, search_chosen=search_chosen)
 
 if __name__ == "__main__":
     app.run(host=config["web_address"], port=config["web_port"], debug=True)
