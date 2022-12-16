@@ -131,7 +131,6 @@ def actor_created():
     last_name = request.form.get('import_lastname')
 
     res = new_person(first_name, last_name, "actor") 
-    #rajouter condition pour voir si res == ok ou pas
     update_lists()
     return render_template("actor_created.html", first_name=first_name, last_name=last_name)
 
@@ -146,7 +145,6 @@ def owner_created():
 
 @app.route('/movie_created', methods=['POST', 'GET'])
 def movie_created():
-    #TO DO
     title = request.form.get('title')
     director = request.form.get('director')
     movie_year = request.form.get('movie_year')
@@ -160,7 +158,6 @@ def movie_created():
 
 @app.route('/videolib_created', methods=['POST', 'GET'])
 def videolib_created():
-    #TO DO
     videolib_title = request.form.get('videolib_title')
     owner = request.form.get('owner')
     videolib_movies = request.form.getlist('videolib_movies')
@@ -241,7 +238,6 @@ def search_explore():
 @app.route('/template_search', methods=['GET'])
 def template_search():
     search_chosen = request.args.to_dict()['query']
-    #TODO 
     return render_template('template_search.html', search_chosen=search_chosen)
 
 if __name__ == "__main__":
