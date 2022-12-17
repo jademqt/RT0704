@@ -53,20 +53,23 @@
     <div class="text-center mt-5">
         <h1>Videolib</h1>
         <h2>Data base</h2>
-  	
-	<table>
-		<tr>
-			<th>Title</th>
-			<th>Owner</th>
-		</tr>
-		
-		{% for v in flist %}
-		<tr>
-			<td><a class='hover_liens' href="/videolib?vid={{ v[0] }}">{{ v[0] }}</a></td>
-			<td>{{ v[1] }}</td>
-		</tr>
-		{% endfor %}
-	</table>
+        {% if long==0 : %}
+            <h3> Sorry.. this data base is empty for the moment </h3>
+        {% else : %}
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Owner</th>
+            </tr>
+
+            {% for v in flist %}
+            <tr>
+                <td><a class='hover_liens' href="/videolib?vid={{ v[0] }}">{{ v[0] }}</a></td>
+                <td>{{ v[1] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
     </div>
 
 

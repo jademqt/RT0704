@@ -93,7 +93,7 @@ def explore_actors():
         person_tup = (jsobj['first_name'], jsobj['last_name'], jsobj['tag'])
         if person_tup[2]=="actor" :
             full_list.append(person_tup)
-        long = len(full_list)
+    long = len(full_list)
 
     return render_template("explore_actors.html", long=long, flist = full_list)
 
@@ -103,13 +103,13 @@ def explore_movies():
     update_lists()
     full_list = []
     movie_tup = ()
-
+    long=0
     for u in movies_uri_list:
         jsobj = json.loads(get_movie(u).content)
         movie_tup = (jsobj['title'], jsobj['year'])
         full_list.append(movie_tup)
-
-    return render_template('explore_movies.html', full_list=full_list)
+    long = len(full_list)
+    return render_template('explore_movies.html', long=long, full_list=full_list)
 
 
 @app.route('/explore_videolib')
@@ -117,13 +117,13 @@ def explore_videolib():
     update_lists()
     full_list = []
     vlib_tup = ()
-
+    long=0
     for v in lib_uri_list:
         jsobj = json.loads(get_vlib(v).content)
         vlib_tup = (jsobj['title'], jsobj['owner'][12:])
         full_list.append(vlib_tup)
-
-    return render_template('explore_videolib.html', flist = full_list)
+    long = len(full_list)
+    return render_template('explore_videolib.html', long=long, flist = full_list)
 
 
 @app.route('/actor_created', methods=['POST', 'GET'])
