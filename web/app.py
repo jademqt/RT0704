@@ -93,7 +93,7 @@ def explore_actors():
         person_tup = (jsobj['first_name'], jsobj['last_name'], jsobj['tag'])
         if person_tup[2]=="actor" :
             full_list.append(person_tup)
-    long = len(full_list)
+        long = len(full_list)
 
     return render_template("explore_actors.html", long=long, flist = full_list)
 
@@ -108,7 +108,7 @@ def explore_movies():
         jsobj = json.loads(get_movie(u).content)
         movie_tup = (jsobj['title'], jsobj['year'])
         full_list.append(movie_tup)
-    long = len(full_list)
+        long = len(full_list)
     return render_template('explore_movies.html', long=long, full_list=full_list)
 
 
@@ -122,7 +122,7 @@ def explore_videolib():
         jsobj = json.loads(get_vlib(v).content)
         vlib_tup = (jsobj['title'], jsobj['owner'][12:])
         full_list.append(vlib_tup)
-    long = len(full_list)
+        long = len(full_list)
     return render_template('explore_videolib.html', long=long, flist = full_list)
 
 
@@ -250,6 +250,6 @@ def template_search():
         tab_object.append(descriptor(res))
     long = len(tab_uri)
     return render_template('template_search.html',  tab_category=tab_category, tab_object=tab_object, long=long, search_chosen=search_chosen)
-    
+
 if __name__ == "__main__":
     app.run(host=config["web_address"], port=config["web_port"], debug=True)
