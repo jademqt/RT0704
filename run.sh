@@ -15,7 +15,7 @@ check_dir () {
 }
 
 config_ip () {
-	ip=`ip a | grep eth0 | tail -1 | cut -c 10-19`
+	ip=`ip a | grep 10.11 | cut -c 10-19`
 	sed -r "s/10.11.[0-9]+.[0-9]+/${ip}/" config.json | tee config2.json 1>/dev/null
 	mv config2.json config.json
 }
