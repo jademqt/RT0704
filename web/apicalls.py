@@ -82,9 +82,7 @@ def new_movie(title, direc, year, actors):
 
     mdict = { "title": title, "year": int(year), "director": dir_uri, "actors": act_uris }
 
-<<<<<<< HEAD
     return requests.post(rest_full_address + "api/movies/" + title.lower(), json = mdict)
-=======
     i = 0
     res = requests.post(rest_full_address + "api/movies/" + title.lower() + "_" + year, json = mdict)
     
@@ -93,7 +91,7 @@ def new_movie(title, direc, year, actors):
         i += 1
 
     return res
->>>>>>> 9535ee04975058ba35fd33e5a2cb45601deb1510
+
 
 
 def new_vlib(title, owner, movies):

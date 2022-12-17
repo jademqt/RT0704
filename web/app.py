@@ -239,7 +239,6 @@ def search_explore():
 
 @app.route('/template_search', methods=['GET', 'POST'])
 def template_search():
-<<<<<<< HEAD
     search_chosen = request.form.get('query')
     list_results = (search(search_chosen).content).decode()
     tab_object = []
@@ -251,10 +250,6 @@ def template_search():
         tab_object.append(descriptor(res))
     long = len(tab_uri)
     return render_template('template_search.html',  tab_category=tab_category, tab_object=tab_object, long=long, search_chosen=search_chosen)
-=======
-    search_chosen = request.args.to_dict()['query']
-    return render_template('template_search.html', search_chosen=search_chosen)
->>>>>>> 9535ee04975058ba35fd33e5a2cb45601deb1510
-
+    
 if __name__ == "__main__":
     app.run(host=config["web_address"], port=config["web_port"], debug=True)
