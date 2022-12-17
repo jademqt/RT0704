@@ -6,3 +6,5 @@
 -) listes deroulantes + appels de fonction delete
 -) tags personnes
 -) affichages
+-) fonction get_nom
+-) sauvegarde noms fichiers plus complets

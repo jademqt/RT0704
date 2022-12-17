@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#run.sh will not work on a container, this will 'hopefully"
-
 needed_dirs=("log" "web" "rest" "rest/api" "rest/api/persons" "rest/api/movies" "rest/api/vlib")
 
 check_dir () {

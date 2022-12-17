@@ -63,7 +63,14 @@ def search(query):
 
 def new_person(fname, lname, tag):
     pdict = { "first_name" : fname, "last_name" : lname, 'tag' : tag }
-    return requests.post(rest_full_address + "api/persons/" + fname.lower(), json = pdict)
+    res = requests.post(rest_full_address + "api/persons/" + fname.lower() + "_" + lname.lower(), json = pdict)
+    i = 0
+
+    while res.content.decode() == "EXISTS":
+        res = requests.post(rest_full_address + "api/persons/" + fname.lower() + "_" + lname.lower() + "_" + str(i), json = pdict)
+        i += 1
+
+    return res
 
 
 def new_movie(title, direc, year, actors):
@@ -75,7 +82,18 @@ def new_movie(title, direc, year, actors):
 
     mdict = { "title": title, "year": int(year), "director": dir_uri, "actors": act_uris }
 
+<<<<<<< HEAD
     return requests.post(rest_full_address + "api/movies/" + title.lower(), json = mdict)
+=======
+    i = 0
+    res = requests.post(rest_full_address + "api/movies/" + title.lower() + "_" + year, json = mdict)
+    
+    while res.content.decode() == "EXISTS":
+        res = requests.post(rest_full_address + "api/movies/" + title.lower() + "_" + year + "_" + str(i), json = mdict)
+        i += 1
+
+    return res
+>>>>>>> 9535ee04975058ba35fd33e5a2cb45601deb1510
 
 
 def new_vlib(title, owner, movies):
@@ -86,7 +104,14 @@ def new_vlib(title, owner, movies):
 
     vdict = { "title": title, "owner": owner_uri, "movies": mov_uris }
 
-    return requests.post(rest_full_address + "api/vlib/" + title.lower(), json = vdict)
+    res = requests.post(rest_full_address + "api/vlib/" + title.lower(), json = vdict)
+    i = 0
+
+    while res.content.decode == "EXISTS":
+        res = requests.post(rest_full_address + "api/vlib/" + title.lower() + "_" + str(i), json = vdict)
+        i += 1
+
+    return res
 
 
 # DELETE requests

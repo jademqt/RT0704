@@ -6,7 +6,6 @@ from flask import Flask, request
 from formats import *
 from search import *
 
-
 def path_from_uri(uri, dotflag):
     path = config["app_root"] + "/rest/" + uri
     if (dotflag):
@@ -14,12 +13,9 @@ def path_from_uri(uri, dotflag):
 
     return path
 
-
 def func_get(uri):
     path = path_from_uri(uri, False)
     
-    print("[xddd] uri = " + uri)
-
     # list uris
     if uri == "api/vlib" or uri == "api/persons" or uri == "api/movies":
        return list_files(uri) 
@@ -57,7 +53,7 @@ def func_post(uri):
 
     # File exists
     if (os.path.exists(full_path)):
-        return "NOK"
+        return "EXISTS"
 
     json_obj = request.get_json(force=True)
     json_str = json.dumps(json_obj)

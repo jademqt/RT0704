@@ -10,5 +10,5 @@ RUN apt install -y python3-pip
 RUN pip install Flask
 RUN pip install requests
 
-
+COPY * .
 
