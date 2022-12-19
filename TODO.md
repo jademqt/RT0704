@@ -2,9 +2,5 @@
 
 #### ptdr
 
--) *actuellement: choix des films a la creation de vlib* --> ajout/suppression de films d'une vlib indépendants de sa creation
--) listes deroulantes + appels de fonction delete
--) tags personnes
--) affichages
--) fonction get_nom
--) sauvegarde noms fichiers plus complets
+-) retirer affichages de test dans html
+-) je crois bien que c'est pas trop mal

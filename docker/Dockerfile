@@ -19,6 +19,6 @@ COPY rest /home/app/rest
 RUN mkdir /home/app/web
 COPY web /home/app/web
 
-COPY run_docker.sh /home/app
-COPY config_docker.json /home/app/config.json
+COPY run.sh /home/app
+COPY config.json /home/app
 
