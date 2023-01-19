@@ -42,11 +42,11 @@ def search_general(query):
     
         if 'first_name' in jsonobj:
             if jsonobj['first_name'] == query or jsonobj['last_name'] == query:
-                res.append(f[23:-5])
+                res.append(f[5:-5])
 
         if 'title' in jsonobj:
             if jsonobj['title'] == query:
-                res.append(f[23:-5])
+                res.append(f[5:-5])
 
     st = ""
 

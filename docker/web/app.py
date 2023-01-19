@@ -1,10 +1,8 @@
 #-*- coding: utf-8 -*- 
 
-# from operator import methodcaller
 import requests
 import json
 from flask import Flask, jsonify, render_template, redirect, url_for, request, session
-#from datetime import timedelta
 from apicalls import *
 
 app = Flask(__name__)
@@ -242,7 +240,13 @@ def template_search():
     tab_object = []
     tab_category = []
     tab_uri = list_results.split("\n")[:-1]
+
+    #debug
+    app.logger.info("query : " + search_chosen)
+    app.logger.info("tab_uri : " + str(tab_uri))
+
     for res in tab_uri :
+        app.logger.debug("res : " + res)
         tab = res.split('/')
         tab_category.append(tab[1])
         tab_object.append(descriptor(res))
@@ -250,5 +254,4 @@ def template_search():
     return render_template('template_search.html',  tab_category=tab_category, tab_object=tab_object, long=long, search_chosen=search_chosen)
 
 if __name__ == "__main__":
-    print("[x] STARTED")
     app.run(debug=True, host="0.0.0.0", port=8001)

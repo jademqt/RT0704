@@ -7,6 +7,4 @@ RUN pip install Flask
 
 WORKDIR /app
 
-COPY rest .
-
 CMD ["python3","server/sv.py"]
