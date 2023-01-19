@@ -1,11 +1,8 @@
 import requests
 import json
 
-# load config
-with open("/home/app/config.json", "r") as f:
-    config = json.load(f)
+rest_full_address = "http://172.17.0.2:8000/"
 
-rest_full_address = "http://" + config["rest_address"] + ":" + str(config["rest_port"]) + "/"
 
 # GET requests
 # used to get info about entry

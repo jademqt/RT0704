@@ -7,7 +7,7 @@ from formats import *
 from search import *
 
 def path_from_uri(uri, dotflag):
-    path = '/app/rest/api' + "/" + uri
+    path = '/app/' + uri
     if (dotflag):
         path += ".json"
 
@@ -49,7 +49,8 @@ def func_post(uri):
 
     # No data
     if len(request.data) == 0:
-        return "NOK"
+        print("nodata")
+        return "NOK NO DATA"
 
     # File exists
     if (os.path.exists(full_path)):
@@ -61,15 +62,14 @@ def func_post(uri):
     # Check format
     if (objtype == 'persons'):
         if not json_is_person(json_str):
-            return "NOK"
+            print("wformat")
+            return "NOK WRONG FORMAT"
     elif (objtype == 'movies'):
-        print("92")
         if not json_is_movie(json_str):
-            print("izi")
-            return "NOK"
+            return "NOK WRONG FORMAT"
     elif (objtype == 'vlib'):
         if not json_is_vlib(json_str):
-            return "NOK"
+            return "NOK WRONG FORMAT"
 
     # Write to file
     with open(full_path, "w") as f:
@@ -108,4 +108,4 @@ def main_func(uri):
     return ans
 
 if __name__ == "__main__":
-    app.run(debug=True, port=8000)
+    app.run(debug=True, host="0.0.0.0", port=8000)

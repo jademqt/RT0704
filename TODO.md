@@ -1,6 +1,10 @@
-### LA VIE N'EST QUE SOUFFRANCE
+## BUGS
+recherche:
+	pb a priori list index dans web/app.py
+	recherche pour 'michel' ne trouve rien (pas d'erreur)
+	recherche pour 'Michel' provoque erreur (?)
 
-#### ptdr
 
--) retirer affichages de test dans html
--) je crois bien que c'est pas trop mal
+## AMELIORATIONS
+listes déroulantes affichent 'prenom_nom' ?
+formulations bizarres des fois

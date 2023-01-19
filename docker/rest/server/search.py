@@ -5,7 +5,7 @@ from formats import *
 # utilitaries
 
 def list_files(uri):
-    files = os.listdir('/app/rest/api' + uri + "/")
+    files = os.listdir('/app/' + uri + "/")
     ret = ""
     for f in files:
         ret += uri + "/"
@@ -16,11 +16,11 @@ def list_files(uri):
     return ret
 
 def list_files_raw(uri):
-    files = os.listdir('/app/rest/api' + "/" + uri + "/")
+    files = os.listdir('/app/' + uri + "/")
     res = []
 
     for f in files:
-        res.append('/app/rest/api' + "/"  + uri + "/" + f)
+        res.append('/app/'  + uri + "/" + f)
 
     return res
 

@@ -1,17 +1,15 @@
 #-*- coding: utf-8 -*- 
 
-from operator import methodcaller
+# from operator import methodcaller
 import requests
 import json
 from flask import Flask, jsonify, render_template, redirect, url_for, request, session
-from datetime import timedelta
+#from datetime import timedelta
 from apicalls import *
 
 app = Flask(__name__)
 
-# load config
-with open("/home/app/config.json", "r") as f:
-    config = json.load(f)
+rest_full_address = "http://172.17.0.2:8000/"
 
 persons_list = []
 movies_list = []
@@ -36,6 +34,7 @@ def create_movies_list():
     movies_list.clear()
     for mov in movies_uri_list :
         movies_list.append(mov[11:])
+
 def create_videolib_list():
     update_lists()
     lib_list.clear()
@@ -44,6 +43,7 @@ def create_videolib_list():
 
 @app.route('/')
 def web():
+    print("[x] access to /")
     return  render_template("index.html")
 
 @app.route('/import_actors')
@@ -91,7 +91,7 @@ def explore_actors():
         person_tup = (jsobj['first_name'], jsobj['last_name'], jsobj['tag'])
         if person_tup[2]=="actor" :
             full_list.append(person_tup)
-    long = len(full_list)
+        long = len(full_list)
 
     return render_template("explore_actors.html", long=long, flist = full_list)
 
@@ -106,7 +106,7 @@ def explore_movies():
         jsobj = json.loads(get_movie(u).content)
         movie_tup = (jsobj['title'], jsobj['year'])
         full_list.append(movie_tup)
-    long = len(full_list)
+        long = len(full_list)
     return render_template('explore_movies.html', long=long, full_list=full_list)
 
 
@@ -120,7 +120,7 @@ def explore_videolib():
         jsobj = json.loads(get_vlib(v).content)
         vlib_tup = (jsobj['title'], jsobj['owner'][12:])
         full_list.append(vlib_tup)
-    long = len(full_list)
+        long = len(full_list)
     return render_template('explore_videolib.html', long=long, flist = full_list)
 
 
@@ -248,6 +248,7 @@ def template_search():
         tab_object.append(descriptor(res))
     long = len(tab_uri)
     return render_template('template_search.html',  tab_category=tab_category, tab_object=tab_object, long=long, search_chosen=search_chosen)
-    
+
 if __name__ == "__main__":
-    app.run(host=config["web_address"], port=config["web_port"], debug=True)
+    print("[x] STARTED")
+    app.run(debug=True, host="0.0.0.0", port=8001)
