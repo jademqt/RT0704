@@ -7,7 +7,7 @@ from formats import *
 from search import *
 
 def path_from_uri(uri, dotflag):
-    path = config["rest_root"] + "/" + uri
+    path = '/app/rest/api' + "/" + uri
     if (dotflag):
         path += ".json"
 
@@ -87,10 +87,6 @@ def func_del(uri):
     return "NOK"
 
 
-# load config
-with open("/home/app/config.json", "r") as f:
-    config = json.load(f)
-
 # differentiate action based on HTTP method
 methodParse = {
     "GET": func_get,
@@ -112,4 +108,4 @@ def main_func(uri):
     return ans
 
 if __name__ == "__main__":
-    app.run(debug=True, host=config["rest_address"], port=config["rest_port"])
+    app.run(debug=True, port=8000)

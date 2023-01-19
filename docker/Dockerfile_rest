@@ -1,0 +1,12 @@
+FROM python:3.12.0a4-bullseye
+
+LABEL MAINTAINER Jules_Jade
+
+RUN pip install requests
+RUN pip install Flask
+
+WORKDIR /app
+
+COPY rest .
+
+CMD ["python3","server/sv.py"]
